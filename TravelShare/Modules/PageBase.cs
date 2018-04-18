@@ -15,7 +15,7 @@ namespace TravelShare.Modules
     {
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            Debug.WriteLine("PreIniciado")
+            Debug.WriteLine("PreIniciado");
         }
     }
 }
