@@ -2,6 +2,9 @@
 using System;
 using System.Diagnostics;
 using System.Reflection;
+using InnerLibs;
+using System.Linq.Expressions;
+using System.Linq;
 
 namespace TravelShare.Modules
 {
@@ -16,6 +19,44 @@ namespace TravelShare.Modules
         protected void Page_PreInit(object sender, EventArgs e)
         {
             Debug.WriteLine("PreIniciado");
+        }
+
+        public Usuario UsuarioLogado
+        {
+            get
+            {
+                return (Usuario)Session["UsuarioLogado"];
+            }
+            set
+            {
+                Session["UsuarioLogado"] = value;
+            }
+        }
+
+        public string Logar(string Email, string Senha, string usuID)
+        {
+            using (AcessaBanco xxx = new AcessaBanco())
+            {
+                if (usuID.IsNotBlank())
+                {
+                    int ID = usuID.ChangeType<int, string>();
+                    UsuarioLogado = xxx.GetByPrimaryKey<Usuario>(ID);
+                }
+                else
+                {
+                    UsuarioLogado = xxx.Usuarios.Where(x => x.USU_EMAIL == Email && x.USU_SENHA == Senha).FirstOrDefault();
+                }
+            }
+
+            if (UsuarioLogado != null)
+            {
+                //TODO Escrever cookie
+                return "OK";
+            }
+            else
+            {
+                return "Usuário ou senha incorretos";
+            }
         }
     }
 }
