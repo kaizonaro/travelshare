@@ -1,1 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Class="AcessaBanco" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="travelshare" Class="AcessaBanco" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=186.202.124.13;Initial Catalog=travelshare;Persist Security Info=True;User ID=travelshare" SettingsObjectName="TravelShare.Properties.Settings" SettingsPropertyName="BancoDeDados" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="USU_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USU_NOME" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="USU_SOBRENOME" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="USU_EMAIL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="USU_SENHA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

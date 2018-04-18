@@ -22,6 +22,7 @@ namespace TravelShare.Modules
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="travelshare")]
 	public partial class AcessaBanco : System.Data.Linq.DataContext
 	{
 		
@@ -29,7 +30,16 @@ namespace TravelShare.Modules
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertUsuario(Usuario instance);
+    partial void UpdateUsuario(Usuario instance);
+    partial void DeleteUsuario(Usuario instance);
     #endregion
+		
+		public AcessaBanco() : 
+				base(global::TravelShare.Properties.Settings.Default.BancoDeDados, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public AcessaBanco(string connection) : 
 				base(connection, mappingSource)
@@ -53,6 +63,172 @@ namespace TravelShare.Modules
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Usuario> Usuarios
+		{
+			get
+			{
+				return this.GetTable<Usuario>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
+	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _USU_ID;
+		
+		private string _USU_NOME;
+		
+		private string _USU_SOBRENOME;
+		
+		private string _USU_EMAIL;
+		
+		private string _USU_SENHA;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUSU_IDChanging(int value);
+    partial void OnUSU_IDChanged();
+    partial void OnUSU_NOMEChanging(string value);
+    partial void OnUSU_NOMEChanged();
+    partial void OnUSU_SOBRENOMEChanging(string value);
+    partial void OnUSU_SOBRENOMEChanged();
+    partial void OnUSU_EMAILChanging(string value);
+    partial void OnUSU_EMAILChanged();
+    partial void OnUSU_SENHAChanging(string value);
+    partial void OnUSU_SENHAChanged();
+    #endregion
+		
+		public Usuario()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int USU_ID
+		{
+			get
+			{
+				return this._USU_ID;
+			}
+			set
+			{
+				if ((this._USU_ID != value))
+				{
+					this.OnUSU_IDChanging(value);
+					this.SendPropertyChanging();
+					this._USU_ID = value;
+					this.SendPropertyChanged("USU_ID");
+					this.OnUSU_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_NOME", DbType="VarChar(MAX)")]
+		public string USU_NOME
+		{
+			get
+			{
+				return this._USU_NOME;
+			}
+			set
+			{
+				if ((this._USU_NOME != value))
+				{
+					this.OnUSU_NOMEChanging(value);
+					this.SendPropertyChanging();
+					this._USU_NOME = value;
+					this.SendPropertyChanged("USU_NOME");
+					this.OnUSU_NOMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_SOBRENOME", DbType="VarChar(MAX)")]
+		public string USU_SOBRENOME
+		{
+			get
+			{
+				return this._USU_SOBRENOME;
+			}
+			set
+			{
+				if ((this._USU_SOBRENOME != value))
+				{
+					this.OnUSU_SOBRENOMEChanging(value);
+					this.SendPropertyChanging();
+					this._USU_SOBRENOME = value;
+					this.SendPropertyChanged("USU_SOBRENOME");
+					this.OnUSU_SOBRENOMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_EMAIL", DbType="VarChar(MAX)")]
+		public string USU_EMAIL
+		{
+			get
+			{
+				return this._USU_EMAIL;
+			}
+			set
+			{
+				if ((this._USU_EMAIL != value))
+				{
+					this.OnUSU_EMAILChanging(value);
+					this.SendPropertyChanging();
+					this._USU_EMAIL = value;
+					this.SendPropertyChanged("USU_EMAIL");
+					this.OnUSU_EMAILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_SENHA", DbType="VarChar(MAX)")]
+		public string USU_SENHA
+		{
+			get
+			{
+				return this._USU_SENHA;
+			}
+			set
+			{
+				if ((this._USU_SENHA != value))
+				{
+					this.OnUSU_SENHAChanging(value);
+					this.SendPropertyChanging();
+					this._USU_SENHA = value;
+					this.SendPropertyChanged("USU_SENHA");
+					this.OnUSU_SENHAChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
