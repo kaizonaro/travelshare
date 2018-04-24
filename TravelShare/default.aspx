@@ -46,7 +46,7 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right main-menu">
+                   <%-- <ul class="nav navbar-nav navbar-right main-menu" style="display:none;">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span>
                                 <img src="images/down-arrow.png" alt="" /></span></a>
@@ -111,7 +111,7 @@
                             <i class="icon ion-android-search"></i>
                             <input type="text" class="form-control" placeholder="Search friends, photos, videos">
                         </div>
-                    </form>
+                    </form>--%>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
@@ -169,24 +169,24 @@
             <div class="row slideUp">
                 <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
                     <div class="feature-icon"><i class="icon ion-person-add"></i></div>
-                    <h3>Make Friends</h3>
+                    <h3>Ganhe amigos</h3>
                 </div>
                 <div class="feature-item col-md-2 col-sm-6 col-xs-6">
                     <div class="feature-icon"><i class="icon ion-images"></i></div>
-                    <h3>Publish Posts</h3>
+                    <h3>Faça postagens</h3>
                 </div>
                 <div class="feature-item col-md-2 col-sm-6 col-xs-6">
                     <div class="feature-icon"><i class="icon ion-chatbox-working"></i></div>
-                    <h3>Private Chats</h3>
+                    <h3>Converse no Chat</h3>
                 </div>
                 <div class="feature-item col-md-2 col-sm-6 col-xs-6">
                     <div class="feature-icon"><i class="icon ion-compose"></i></div>
-                    <h3>Create Polls</h3>
+                    <h3>Divida os gastos</h3>
                 </div>
             </div>
-            <h2 class="sub-title">find awesome people like you</h2>
+            <h2 class="sub-title">encontre pessoas incríveis iguais a você</h2>
             <div id="incremental-counter" data-value="101242"></div>
-            <p>People Already Signed Up</p>
+            <p>Pessoas que já se escreveram</p>
             <img src="images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
         </div>
 
@@ -205,7 +205,7 @@
                     <button class="btn-secondary">
                         <img src="images/google-play.png" alt="Google Play" /></button></li>
             </ul>
-            <h2 class="sub-title">stay connected anytime, anywhere</h2>
+            <h2 class="sub-title">Permaneça conectado a qualquer hora, em qualquer lugar.</h2>
             <img src="images/iPhone.png" alt="iPhone" class="img-responsive" />
         </div>
     </section>
@@ -223,17 +223,17 @@
                     <li>
                         <div class="fact-icon"><i class="icon ion-ios-people-outline"></i></div>
                         <h3 class="text-white">1,01,242</h3>
-                        <p>People registered</p>
+                        <p>Pessoas cadastradas</p>
                     </li>
                     <li>
                         <div class="fact-icon"><i class="icon ion-images"></i></div>
                         <h3 class="text-white">21,01,242</h3>
-                        <p>Posts published</p>
+                        <p>Posts publicados</p>
                     </li>
                     <li>
                         <div class="fact-icon"><i class="icon ion-checkmark-round"></i></div>
                         <h3 class="text-white">41,242</h3>
-                        <p>People online</p>
+                        <p>Pessoas online</p>
                     </li>
                 </ul>
             </div>
@@ -241,10 +241,10 @@
     </section>
 
     <!-- Live Feed Section
-    ================================================= -->
+    ================================================= -->see what’s happening now
     <section id="live-feed">
         <div class="container wrapper">
-            <h1 class="section-title slideDown">live feed</h1>
+            <h1 class="section-title slideDown">online</h1>
             <ul class="online-users list-inline slideUp">
                 <li><a href="#" title="Alexis Clark">
                     <img src="images/users/user-5.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
@@ -259,7 +259,7 @@
                 <li><a href="#" title="Julia Cox">
                     <img src="images/users/user-10.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
             </ul>
-            <h2 class="sub-title">see what’s happening now</h2>
+            <h2 class="sub-title">veja o que as pessoas estão falando</h2>
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-md-offset-2">
                     <div class="feed-item">
