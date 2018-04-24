@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using TravelShare.Modules;
 
 namespace TravelShare
 {
-    public partial class _default : PageBase
+    public partial class _default1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
     }
 }
