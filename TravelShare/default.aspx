@@ -127,30 +127,31 @@
 
             <!-- Sign Up Form
         ================================================= -->
-            <div class="sign-up-form">
+            <form class="sign-up-form" action="" runat="server" method="post">
+                <input type="hidden" name="acao" value="inscrever" />
                 <a href="index.html" class="logo">
                     <img src="images/logo.png" alt="Crie sua conta" /></a>
                 <h2 class="text-white">Crie sua conta</h2>
                 <div class="line-divider"></div>
                 <div class="form-wrapper">
                     <p class="signup-text">Inscreva-se agora e conheça pessoas incríveis ao redor do mundo!</p>
-                    <form action="#">
+                    <div>
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" id="example-name" placeholder="Digite seu nome">
+                            <input type="text" class="form-control" id="USU_NOME" placeholder="Digite seu nome" />
                         </fieldset>
                         <fieldset class="form-group">
-                            <input type="email" class="form-control" id="example-email" placeholder="Digite seu e-mail">
+                            <input type="email" class="form-control" id="USU_EMAIL" placeholder="Digite seu e-mail" />
                         </fieldset>
                         <fieldset class="form-group">
-                            <input type="password" class="form-control" id="example-password" placeholder="Digite uma senha">
+                            <input type="password" class="form-control" id="USU_SENHA" placeholder="Digite uma senha" />
                         </fieldset>
-                    </form>
+                    </div>
                     <p>Ao assinar você concorda com os <a href="javascript:void(0);">termos</a></p>
-                    <button class="btn-secondary">Inscrever-se</button>
+                    <input type="submit" class="btn-secondary" value="Inscrever-se" />
                 </div>
                 <a href="javascript:void(0);">Já tem uma conta?</a>
                 <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
-            </div>
+            </form>
             <!-- Sign Up Form End -->
 
             <svg class="arrows hidden-xs hidden-sm">
@@ -189,7 +190,6 @@
             <p>Pessoas que já se escreveram</p>
             <img src="images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
         </div>
-
     </section>
 
     <!-- Download Section
@@ -416,6 +416,5 @@
     <script src="js/jquery.appear.min.js"></script>
     <script src="js/jquery.incremental-counter.js"></script>
     <script src="js/script.js"></script>
-
 </body>
 </html>
