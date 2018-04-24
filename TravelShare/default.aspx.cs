@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using InnerLibs;
+using TravelShare.Modules;
 
 namespace TravelShare
 {
@@ -30,7 +31,19 @@ namespace TravelShare
                         Response.WriteEnd(UsuarioLogado.USU_NOME);
                     }
 
+                    //ListarUsuarios()
+
                     break;
+            }
+        }
+
+        public void ListarUsuarios()
+        {
+            using (AcessaBanco xxx = new AcessaBanco())
+            {
+                IEnumerable<Usuario> usus = xxx.Usuarios.OrderBy(x => Guid.NewGuid()).Take(20).AsEnumerable().Where(x => Utils.LogadoAgora[x].IsOnline).Take(6);
+
+                usuarios.InnerHtml = Utils.Engine.ApplyTemplate<Usuario>(usus, 0, 0, "template_usuario_home");
             }
         }
     }

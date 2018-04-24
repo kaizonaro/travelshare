@@ -46,7 +46,7 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                   <%-- <ul class="nav navbar-nav navbar-right main-menu" style="display:none;">
+                    <%-- <ul class="nav navbar-nav navbar-right main-menu" style="display:none;">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span>
                                 <img src="images/down-arrow.png" alt="" /></span></a>
@@ -241,23 +241,12 @@
     </section>
 
     <!-- Live Feed Section
-    ================================================= -->see what’s happening now
+    ================================================= -->
+    see what’s happening now
     <section id="live-feed">
         <div class="container wrapper">
             <h1 class="section-title slideDown">online</h1>
-            <ul class="online-users list-inline slideUp">
-                <li><a href="#" title="Alexis Clark">
-                    <img src="images/users/user-5.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-                <li><a href="#" title="James Carter">
-                    <img src="images/users/user-6.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-                <li><a href="#" title="Robert Cook">
-                    <img src="images/users/user-7.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-                <li><a href="#" title="Richard Bell">
-                    <img src="images/users/user-8.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-                <li><a href="#" title="Anna Young">
-                    <img src="images/users/user-9.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-                <li><a href="#" title="Julia Cox">
-                    <img src="images/users/user-10.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            <ul class="online-users list-inline slideUp" id="usuarios" runat="server">
             </ul>
             <h2 class="sub-title">veja o que as pessoas estão falando</h2>
             <div class="row">

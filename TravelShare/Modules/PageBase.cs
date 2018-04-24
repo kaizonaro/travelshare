@@ -1,15 +1,16 @@
-﻿using InnerLibs.LINQ;
+﻿using InnerLibs;
+using InnerLibs.LINQ;
 using System;
 using System.Diagnostics;
-using System.Reflection;
-using InnerLibs;
-using System.Linq.Expressions;
 using System.Linq;
+using System.Reflection;
+using System.Web;
 
 namespace TravelShare.Modules
 {
     public static class Utils
     {
+        public static OnlineList<Usuario, int> LogadoAgora = new OnlineList<Usuario, int>(x => x.USU_ID);
         public static Triforce<AcessaBanco> Engine = new Triforce<AcessaBanco>(Assembly.GetExecutingAssembly());
     }
 
@@ -19,6 +20,13 @@ namespace TravelShare.Modules
         protected void Page_PreInit(object sender, EventArgs e)
         {
             Debug.WriteLine("PreIniciado");
+
+            HttpCookie coo = Request.Cookies["USU_ID"];
+
+            if (coo != null && coo.Value.IsNotBlank())
+            {
+                Logar(null, null, coo.Value);
+            }
         }
 
         public Usuario UsuarioLogado
@@ -33,8 +41,18 @@ namespace TravelShare.Modules
             }
         }
 
-        public string Logar(string Email, string Senha, string usuID)
+        public string Logar(string Email, string Senha, string usuID = "")
         {
+            if (!Email.IsEmail())
+            {
+                return "Email Inválido";
+            }
+
+            if (Senha.IsBlank())
+            {
+                return "Senha Inválida";
+            }
+
             using (AcessaBanco xxx = new AcessaBanco())
             {
                 if (usuID.IsNotBlank())
@@ -51,11 +69,14 @@ namespace TravelShare.Modules
             if (UsuarioLogado != null)
             {
                 //TODO Escrever cookie
+                HttpCookie coo = new HttpCookie("USU_ID", UsuarioLogado.USU_ID.ToString().InnCrypt());
+                coo.Expires = DateTime.Now;
+                Response.AppendCookie(coo);
                 return "OK";
             }
             else
             {
-                return "Usuário ou senha incorretos";
+                return "Email ou senha incorretos";
             }
         }
     }
