@@ -43,7 +43,7 @@ namespace TravelShare
             {
                 IEnumerable<Usuario> usus = xxx.Usuarios.OrderBy(x => Guid.NewGuid()).Take(20).AsEnumerable().Where(x => Utils.LogadoAgora[x].IsOnline).Take(6);
 
-                usuarios.InnerHtml = Utils.Engine.ApplyTemplate<Usuario>(usus, 0, 0, "template_usuario_home");
+               // usuarios.InnerHtml = Utils.Engine.ApplyTemplate<Usuario>(usus, 0, 0, "template_usuario_home");
             }
         }
     }

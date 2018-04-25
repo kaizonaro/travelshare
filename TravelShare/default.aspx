@@ -283,9 +283,7 @@
         </div>
     </section>
 
-    <!-- Live Feed Section
-    ================================================= -->
-    see what’s happening now
+    <!-- veja o que as pessoas estão falando -->
     <section id="live-feed">
         <div class="container wrapper">
             <h1 class="section-title slideDown">online</h1>
