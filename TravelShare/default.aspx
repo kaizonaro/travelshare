@@ -23,6 +23,21 @@
 
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="images/fav.png" />
+
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=307006266017428&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    
+	<style>
+		.camposForm {-webkit-transition: all 0.5s ease;-moz-transition: all 0.5s ease;-o-transition: all 0.5s ease;transition: all 0.5s ease;opacity: 1;}
+		.camposForm.esconde {min-height: 0px;max-height: 0px;overflow: hidden;opacity: 0}
+	</style>
+	
 </head>
 <body>
 
@@ -128,28 +143,56 @@
             <!-- Sign Up Form
         ================================================= -->
             <form class="sign-up-form" action="" runat="server" method="post">
-                <input type="hidden" name="acao" value="inscrever" />
-                <a href="index.html" class="logo">
-                    <img src="images/logo.png" alt="Crie sua conta" /></a>
-                <h2 class="text-white">Crie sua conta</h2>
-                <div class="line-divider"></div>
-                <div class="form-wrapper">
-                    <p class="signup-text">Inscreva-se agora e conheça pessoas incríveis ao redor do mundo!</p>
-                    <div>
-                        <fieldset class="form-group">
-                            <input type="text" class="form-control" id="USU_NOME" placeholder="Digite seu nome" />
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input type="email" class="form-control" id="USU_EMAIL" placeholder="Digite seu e-mail" />
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <input type="password" class="form-control" id="USU_SENHA" placeholder="Digite uma senha" />
-                        </fieldset>
-                    </div>
-                    <p>Ao assinar você concorda com os <a href="javascript:void(0);">termos</a></p>
-                    <input type="submit" class="btn-secondary" value="Inscrever-se" />
-                </div>
-                <a href="javascript:void(0);">Já tem uma conta?</a>
+               	<a href="index.html" class="logo">
+					<img src="images/logo.png" alt="Travel Share" />
+				</a>
+               	<div id="formRegistrar" class="camposForm">
+					<input type="hidden" name="acao" value="inscrever" />
+					<h2 class="text-white">Crie sua conta</h2>
+					<div class="line-divider"></div>
+					<div class="form-wrapper">
+						<p class="signup-text">Inscreva-se agora e conheça pessoas incríveis ao redor do mundo!</p>
+						<div>
+							<fieldset class="form-group">
+								<input type="text" class="form-control" id="USU_NOME" placeholder="Digite seu nome" />
+							</fieldset>
+							<fieldset class="form-group">
+								<input type="email" class="form-control" id="USU_EMAIL" placeholder="Digite seu e-mail" />
+							</fieldset>
+							<fieldset class="form-group">
+								<input type="password" class="form-control" id="USU_SENHA" placeholder="Digite uma senha" />
+							</fieldset>
+						</div>
+						<p>Ao assinar você concorda com os <a href="javascript:void(0);">termos</a></p>
+						<input type="submit" class="btn-secondary" value="Inscrever-se" />
+					</div>
+					<a href="javascript:void(0);" class="btnTemConta">Já tem uma conta?</a>
+					<div class="cadastrar-face">
+					   <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+					</div>
+               	</div>
+               	<div id="formLogin" class="camposForm esconde">
+               		<input type="hidden" name="acao" value="login" />
+					<h2 class="text-white">Login</h2>
+					<div class="line-divider"></div>
+					<div class="form-wrapper">
+						<p class="signup-text">Faça login na sua conta</p>
+						<div>
+							<fieldset class="form-group">
+								<input type="email" class="form-control" id="USU_LOG_EMAIL" placeholder="Seu email" />
+							</fieldset>
+							<fieldset class="form-group">
+								<input type="password" class="form-control" id="USU_LOG_SENHA" placeholder="Sua senha" />
+							</fieldset>
+						</div>
+						<input type="submit" class="btn-secondary" value="Logar" />
+					</div>
+					<a href="javascript:void(0);" class="btnEsqueciSenha">Esqueceu sua senha?</a><br />
+					<a href="javascript:void(0);" class="btnCriarConta">Não tem uma conta ainda?</a>
+					<div class="logar-face">
+						<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+					</div>
+               	</div>
                 <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
             </form>
             <!-- Sign Up Form End -->
@@ -405,5 +448,18 @@
     <script src="js/jquery.appear.min.js"></script>
     <script src="js/jquery.incremental-counter.js"></script>
     <script src="js/script.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $(".btnTemConta").click(function () {
+                $("#formRegistrar").addClass("esconde");
+                $("#formLogin").removeClass("esconde");
+            });
+            $(".btnCriarConta").click(function () {
+                $("#formLogin").addClass("esconde");
+                $("#formRegistrar").removeClass("esconde");
+            });
+        });
+	</script>
 </body>
 </html>
