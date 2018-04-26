@@ -22,7 +22,21 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
 
     <!--Favicon-->
-    <link rel="shortcut icon" type="image/png" href="images/fav.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/manifest.json">
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
 
     <div id="fb-root"></div>
     <script>(function (d, s, id) {
@@ -184,15 +198,16 @@
 							<fieldset class="form-group">
 								<input type="password" class="form-control" id="USU_LOG_SENHA" placeholder="Sua senha" />
 							</fieldset>
+                            <a href="javascript:void(0);" class="btnEsqueciSenha">Esqueceu sua senha?</a>
 						</div>
 						<input type="submit" class="btn-secondary" value="Logar" />
 					</div>
-					<a href="javascript:void(0);" class="btnEsqueciSenha">Esqueceu sua senha?</a><br />
 					
+					 <a href="javascript:void(0);" class="btnCriarConta">Não tem uma conta ainda?</a>
 					<div class="logar-face">
 						<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 					</div>
-                       <a href="javascript:void(0);" class="btnCriarConta">Não tem uma conta ainda?</a>
+                      
                	</div>
                 <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
             </form>

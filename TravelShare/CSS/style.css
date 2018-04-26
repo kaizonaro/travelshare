@@ -2740,5 +2740,8 @@ ul.contact li i, ul.contact li div {
     min-height: 287px;
 }
 #formLogin .form-wrapper {
-    padding-top: 70px;
+    padding-top: 60px;
+}
+.navbar-brand {
+    padding: 5px 15px;
 }
