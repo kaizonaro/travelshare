@@ -544,12 +544,12 @@ textarea{
   margin-bottom: 10px;
 }
 
-.sign-up-form .form-wrapper{
-  padding: 20px 20px 0;
-  border: 1px solid rgba(255, 255, 255, .2);
-  border-top: none;
-  margin-bottom: 30px;
-}
+    .sign-up-form .form-wrapper {
+        padding: 20px 20px 0;
+        border: 1px solid rgba(255, 255, 255, .2);
+        border-top: none;
+        margin-bottom: 30px;
+    }
 
 .sign-up-form .form-wrapper .signup-text{
   font-size: 15px;
@@ -2336,8 +2336,9 @@ ul.contact li{
 
 ul.contact li i{
   font-size: 18px;
-  margin-right: 20px;
+  margin-right: 10px;
   color: #27AAE1;
+  width:14px;
 }
 
 .copyright{
@@ -2717,4 +2718,27 @@ ul.contact li i{
   left: -7px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+
+/* Vitor */
+ul.contact li i, ul.contact li div {
+    display: inline-block;
+    vertical-align:middle;
+}
+.navbar-brand {
+    height: auto;
+}
+.sign-up-form .form-wrapper .btn-secondary {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+.sign-up-form .form-wrapper {
+    position: relative;
+    min-height: 287px;
+}
+#formLogin .form-wrapper {
+    padding-top: 70px;
 }

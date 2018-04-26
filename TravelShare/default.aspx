@@ -188,10 +188,11 @@
 						<input type="submit" class="btn-secondary" value="Logar" />
 					</div>
 					<a href="javascript:void(0);" class="btnEsqueciSenha">Esqueceu sua senha?</a><br />
-					<a href="javascript:void(0);" class="btnCriarConta">Não tem uma conta ainda?</a>
+					
 					<div class="logar-face">
 						<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 					</div>
+                       <a href="javascript:void(0);" class="btnCriarConta">Não tem uma conta ainda?</a>
                	</div>
                 <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
             </form>
@@ -242,10 +243,10 @@
             <h1 class="section-title slideDown">download</h1>
             <ul class="app-btn list-inline slideUp">
                 <li>
-                    <button class="btn-secondary">
+                    <button class="btn-secondary" title="Em breve!">
                         <img src="images/app-store.png" alt="App Store" /></button></li>
                 <li>
-                    <button class="btn-secondary">
+                    <button class="btn-secondary" title="Em breve!">
                         <img src="images/google-play.png" alt="Google Play" /></button></li>
             </ul>
             <h2 class="sub-title">Permaneça conectado a qualquer hora, em qualquer lugar.</h2>
@@ -377,60 +378,65 @@
                 <div class="footer-wrapper">
                     <div class="col-md-3 col-sm-3">
                         <a href="">
-                            <img src="images/logo-black.png" alt="" class="footer-logo" /></a>
+                            <img src="images/logo-travel.png" alt="" class="footer-logo" /></a>
                         <ul class="list-inline social-icons">
                             <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
                             <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
+                            <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
                             <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
                             <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
-                            <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
                         </ul>
                     </div>
                     <div class="col-md-2 col-sm-2">
-                        <h5>For individuals</h5>
+                        <h5>Para você</h5>
                         <ul class="footer-links">
-                            <li><a href="">Signup</a></li>
-                            <li><a href="">login</a></li>
-                            <li><a href="">Explore</a></li>
-                            <li><a href="">Finder app</a></li>
-                            <li><a href="">Features</a></li>
-                            <li><a href="">Language settings</a></li>
+                            <li><a href="">Login</a></li>
+                            <li><a href="">Inscreva-se</a></li>
+                            <li><a href="">App Travel Share</a></li>
+                            <li><a href="">Características</a></li>
+                            <li><a href="">Configurações Gerais</a></li>
                         </ul>
                     </div>
                     <div class="col-md-2 col-sm-2">
-                        <h5>For businesses</h5>
+                        <h5>Para empresas</h5>
                         <ul class="footer-links">
-                            <li><a href="">Business signup</a></li>
-                            <li><a href="">Business login</a></li>
-                            <li><a href="">Benefits</a></li>
-                            <li><a href="">Resources</a></li>
-                            <li><a href="">Advertise</a></li>
-                            <li><a href="">Setup</a></li>
+                            <li><a href="">Login para empresa</a></li>
+                            <li><a href="">Assinatura Empresarial</a></li>
+                            <li><a href="">Recursos</a></li>
+                            <li><a href="">Anuncie</a></li>
+                            <li><a href="">Configurações Gerais</a></li>
                         </ul>
                     </div>
                     <div class="col-md-2 col-sm-2">
-                        <h5>About</h5>
+                        <h5>Institucional</h5>
                         <ul class="footer-links">
-                            <li><a href="">About us</a></li>
-                            <li><a href="">Contact us</a></li>
-                            <li><a href="">Privacy Policy</a></li>
-                            <li><a href="">Terms</a></li>
-                            <li><a href="">Help</a></li>
+                            <li><a href="">Sobre nós</a></li>
+                            <li><a href="">Fale conosco</a></li>
+                            <li><a href="">Política de provacidade</a></li>
+                            <li><a href="">Termos de aceite</a></li>
+                            <li><a href="">FAQ</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-sm-3">
-                        <h5>Contact Us</h5>
+                        <h5>Fale conosco</h5>
                         <ul class="contact">
-                            <li><i class="icon ion-ios-telephone-outline"></i>+1 (234) 222 0754</li>
-                            <li><i class="icon ion-ios-email-outline"></i>info@thunder-team.com</li>
-                            <li><i class="icon ion-ios-location-outline"></i>228 Park Ave S NY, USA</li>
+                            <li>
+                                <i class="icon ion-ios-telephone-outline"></i>
+                                <div>
+                                    +55 11 3366 - 9966<br />
+                                    +55 11 2255 - 4411
+                                </div>
+                            </li>
+                            <li><i class="icon ion-ios-email-outline"></i>travelshare@viagens.com.br</li>
+                            <li><i class="icon ion-ios-location-outline"></i>São Paulo - SP, BRA</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>copyright @thunder-team 2016. All rights reserved</p>
+            <p>Copyright © Travel Shere 2018. Todos os direitos reservados.</p>
         </div>
     </footer>
 
