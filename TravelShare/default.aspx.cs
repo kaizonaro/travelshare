@@ -47,6 +47,7 @@ namespace TravelShare
                 pessoas_online.InnerHtml = Utils.LogadoAgora.OnlineUsers().Count().ToString();
 
                 total_pessoas.InnerHtml = usus.Count().ToString();
+                incremental_counter.Attributes["data-value"] = usus.Count().ToString();
                 //TODO falta postagens
 
                 usuarios.InnerHtml = Utils.Engine.ApplyTemplate<Usuario>(usus.Take(10), 1, 6, "LINQTemplates.template_usuario_home.html");

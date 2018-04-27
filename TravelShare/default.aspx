@@ -243,8 +243,8 @@
                 </div>
             </div>
             <h2 class="sub-title">encontre pessoas incríveis iguais a você</h2>
-            <div id="incremental-counter" data-value="101242"></div>
-            <p>Pessoas que já se escreveram</p>
+            <div id="incremental_counter" data-value="101242" runat="server"></div>
+            <p>Pessoas que já se inscreveram</p>
             <img src="images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
         </div>
     </section>
