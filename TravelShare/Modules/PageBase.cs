@@ -25,7 +25,7 @@ namespace TravelShare.Modules
 
             if (coo != null && coo.Value.IsNotBlank())
             {
-                Logar(null, null, coo.Value);
+                Logar(null, null, coo.Value.UnnCrypt());
             }
         }
 
@@ -43,16 +43,6 @@ namespace TravelShare.Modules
 
         public string Logar(string Email, string Senha, string usuID = "")
         {
-            if (!Email.IsEmail())
-            {
-                return "Email Inválido";
-            }
-
-            if (Senha.IsBlank())
-            {
-                return "Senha Inválida";
-            }
-
             using (AcessaBanco xxx = new AcessaBanco())
             {
                 if (usuID.IsNotBlank())
@@ -62,7 +52,17 @@ namespace TravelShare.Modules
                 }
                 else
                 {
-                    UsuarioLogado = xxx.Usuarios.Where(x => x.USU_EMAIL == Email && x.USU_SENHA == Senha).FirstOrDefault();
+                    if (!Email.IsEmail())
+                    {
+                        return "Email Inválido";
+                    }
+
+                    if (Senha.IsBlank())
+                    {
+                        return "Senha Inválida";
+                    }
+
+                    UsuarioLogado = xxx.Usuarios.FirstOrDefault(x => x.USU_EMAIL == Email && x.USU_SENHA == Senha);
                 }
             }
 
@@ -70,7 +70,7 @@ namespace TravelShare.Modules
             {
                 //TODO Escrever cookie
                 HttpCookie coo = new HttpCookie("USU_ID", UsuarioLogado.USU_ID.ToString().InnCrypt());
-                coo.Expires = DateTime.Now;
+                coo.Expires = DateTime.Now.AddMonths(1);
                 Response.AppendCookie(coo);
                 return "OK";
             }

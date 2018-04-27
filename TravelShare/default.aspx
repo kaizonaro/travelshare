@@ -48,9 +48,21 @@
         }(document, 'script', 'facebook-jssdk'));</script>
 
     <style>
-		.camposForm {-webkit-transition: all 0.5s ease;-moz-transition: all 0.5s ease;-o-transition: all 0.5s ease;transition: all 0.5s ease;opacity: 1;}
-		.camposForm.esconde {min-height: 0px;max-height: 0px;overflow: hidden;opacity: 0}
-	</style>
+        .camposForm {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            opacity: 1;
+        }
+
+            .camposForm.esconde {
+                min-height: 0px;
+                max-height: 0px;
+                overflow: hidden;
+                opacity: 0
+            }
+    </style>
 </head>
 <body>
 
@@ -155,11 +167,11 @@
 
             <!-- Sign Up Form
         ================================================= -->
-            <form class="sign-up-form" action="" runat="server" method="post">
+            <div class="sign-up-form">
                 <a href="index.html" class="logo">
                     <img src="images/logo.png" alt="Travel Share" />
                 </a>
-                <div id="formRegistrar" class="camposForm">
+                <form action="" method="post" id="formRegistrar" class="camposForm">
                     <input type="hidden" name="acao" value="inscrever" />
                     <h2 class="text-white">Crie sua conta</h2>
                     <div class="line-divider"></div>
@@ -167,13 +179,13 @@
                         <p class="signup-text">Inscreva-se agora e conheça pessoas incríveis ao redor do mundo!</p>
                         <div>
                             <fieldset class="form-group">
-                                <input type="text" class="form-control" id="USU_NOME" placeholder="Digite seu nome" />
+                                <input type="text" class="form-control" name="USU_NOME" placeholder="Digite seu nome" />
                             </fieldset>
                             <fieldset class="form-group">
-                                <input type="email" class="form-control" id="USU_EMAIL" placeholder="Digite seu e-mail" />
+                                <input type="email" class="form-control" name="USU_EMAIL" placeholder="Digite seu e-mail" />
                             </fieldset>
                             <fieldset class="form-group">
-                                <input type="password" class="form-control" id="USU_SENHA" placeholder="Digite uma senha" />
+                                <input type="password" class="form-control" name="USU_SENHA" placeholder="Digite uma senha" />
                             </fieldset>
                         </div>
                         <p>Ao assinar você concorda com os <a href="javascript:void(0);">termos</a></p>
@@ -183,8 +195,8 @@
                     <div class="cadastrar-face">
                         <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     </div>
-                </div>
-                <div id="formLogin" class="camposForm esconde">
+                </form>
+                <form id="formLogin" class="camposForm esconde" action="" method="post">
                     <input type="hidden" name="acao" value="login" />
                     <h2 class="text-white">Login</h2>
                     <div class="line-divider"></div>
@@ -192,10 +204,10 @@
                         <p class="signup-text">Faça login na sua conta</p>
                         <div>
                             <fieldset class="form-group">
-                                <input type="email" class="form-control" id="USU_LOG_EMAIL" placeholder="Seu email" />
+                                <input type="email" class="form-control" name="USU_EMAIL" placeholder="Seu email" />
                             </fieldset>
                             <fieldset class="form-group">
-                                <input type="password" class="form-control" id="USU_LOG_SENHA" placeholder="Sua senha" />
+                                <input type="password" class="form-control" name="USU_SENHA" placeholder="Sua senha" />
                             </fieldset>
                             <a href="javascript:void(0);" class="btnEsqueciSenha">Esqueceu sua senha?</a>
                         </div>
@@ -206,9 +218,9 @@
                     <div class="logar-face">
                         <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     </div>
-                </div>
+                </form>
                 <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
-            </form>
+            </div>
             <!-- Sign Up Form End -->
 
             <svg class="arrows hidden-xs hidden-sm">

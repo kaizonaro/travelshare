@@ -19,23 +19,28 @@ namespace TravelShare
             switch (acao.ToLower())
             {
                 case "inscrever":
-
+                //TODO inscrever e dar redirect pro editar perfil. Disparar email de confirmacao
                 case "login":
                     string msg = "";
-                    msg = Logar(Request["USU_EMAIL"], Request["USU_SENHA"]);
+                    msg = Logar(Request["USU_EMAIL"], Request["USU_SENHA"].ToString().ToMD5String());
+                    break;
+
+                case "sair":
+                    Web.DestroySessionAndCookies(Context.ApplicationInstance);
+                    Response.Redirect("/");
                     break;
 
                 default:
-
-                    if (UsuarioLogado != null)
-                    {
-                        Response.WriteEnd(UsuarioLogado.USU_NOME);
-                    }
-
-                    ListarUsuarios();
-
                     break;
             }
+
+            if (UsuarioLogado != null)
+            {
+                Response.WriteEnd(UsuarioLogado.USU_NOME_COMPLETO);
+                //TODO Redirect para interna
+            }
+
+            ListarUsuarios();
         }
 
         public void ListarUsuarios()
