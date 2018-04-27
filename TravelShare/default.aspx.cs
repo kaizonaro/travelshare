@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using InnerLibs;
+using InnerLibs.LINQ;
 using TravelShare.Modules;
 
 namespace TravelShare
@@ -31,7 +32,7 @@ namespace TravelShare
                         Response.WriteEnd(UsuarioLogado.USU_NOME);
                     }
 
-                    //ListarUsuarios()
+                    ListarUsuarios();
 
                     break;
             }
@@ -41,9 +42,14 @@ namespace TravelShare
         {
             using (AcessaBanco xxx = new AcessaBanco())
             {
-                IEnumerable<Usuario> usus = xxx.Usuarios.OrderBy(x => Guid.NewGuid()).Take(20).AsEnumerable().Where(x => Utils.LogadoAgora[x].IsOnline).Take(6);
+                IQueryable<Usuario> usus = xxx.Usuarios.OrderByRandom();
 
-               // usuarios.InnerHtml = Utils.Engine.ApplyTemplate<Usuario>(usus, 0, 0, "template_usuario_home");
+                pessoas_online.InnerHtml = Utils.LogadoAgora.OnlineUsers().Count().ToString();
+
+                total_pessoas.InnerHtml = usus.Count().ToString();
+                //TODO falta postagens
+
+                usuarios.InnerHtml = Utils.Engine.ApplyTemplate<Usuario>(usus.Take(10), 1, 6, "LINQTemplates.template_usuario_home.html");
             }
         }
     }

@@ -3,10 +3,12 @@
   <Table Name="dbo.Usuario" Member="Usuarios">
     <Type Name="Usuario">
       <Column Name="USU_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USU_NOME" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="USU_SOBRENOME" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="USU_EMAIL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="USU_SENHA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="USU_NOME" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="USU_SOBRENOME" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="USU_EMAIL" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="USU_SENHA" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="USU_FOTO_PERFIL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="USU_USUARIO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

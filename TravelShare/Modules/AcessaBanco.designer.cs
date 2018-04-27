@@ -90,6 +90,10 @@ namespace TravelShare.Modules
 		
 		private string _USU_SENHA;
 		
+		private string _USU_FOTO_PERFIL;
+		
+		private string _USU_USUARIO;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -104,6 +108,10 @@ namespace TravelShare.Modules
     partial void OnUSU_EMAILChanged();
     partial void OnUSU_SENHAChanging(string value);
     partial void OnUSU_SENHAChanged();
+    partial void OnUSU_FOTO_PERFILChanging(string value);
+    partial void OnUSU_FOTO_PERFILChanged();
+    partial void OnUSU_USUARIOChanging(string value);
+    partial void OnUSU_USUARIOChanged();
     #endregion
 		
 		public Usuario()
@@ -131,7 +139,7 @@ namespace TravelShare.Modules
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_NOME", DbType="VarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_NOME", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string USU_NOME
 		{
 			get
@@ -151,7 +159,7 @@ namespace TravelShare.Modules
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_SOBRENOME", DbType="VarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_SOBRENOME", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string USU_SOBRENOME
 		{
 			get
@@ -171,7 +179,7 @@ namespace TravelShare.Modules
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_EMAIL", DbType="VarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_EMAIL", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string USU_EMAIL
 		{
 			get
@@ -191,7 +199,7 @@ namespace TravelShare.Modules
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_SENHA", DbType="VarChar(MAX)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_SENHA", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string USU_SENHA
 		{
 			get
@@ -207,6 +215,46 @@ namespace TravelShare.Modules
 					this._USU_SENHA = value;
 					this.SendPropertyChanged("USU_SENHA");
 					this.OnUSU_SENHAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_FOTO_PERFIL", DbType="VarChar(MAX)")]
+		public string USU_FOTO_PERFIL
+		{
+			get
+			{
+				return this._USU_FOTO_PERFIL;
+			}
+			set
+			{
+				if ((this._USU_FOTO_PERFIL != value))
+				{
+					this.OnUSU_FOTO_PERFILChanging(value);
+					this.SendPropertyChanging();
+					this._USU_FOTO_PERFIL = value;
+					this.SendPropertyChanged("USU_FOTO_PERFIL");
+					this.OnUSU_FOTO_PERFILChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_USUARIO", DbType="VarChar(50)")]
+		public string USU_USUARIO
+		{
+			get
+			{
+				return this._USU_USUARIO;
+			}
+			set
+			{
+				if ((this._USU_USUARIO != value))
+				{
+					this.OnUSU_USUARIOChanging(value);
+					this.SendPropertyChanging();
+					this._USU_USUARIO = value;
+					this.SendPropertyChanged("USU_USUARIO");
+					this.OnUSU_USUARIOChanged();
 				}
 			}
 		}

@@ -19,24 +19,24 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" />
 
     <!--Google Font-->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet" />
 
     <!--Favicon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png" />
     <link rel="manifest" href="/images/favicon/manifest.json">
-    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png" />
 
     <div id="fb-root"></div>
     <script>(function (d, s, id) {
@@ -46,12 +46,11 @@
             js.src = 'https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.12&appId=307006266017428&autoLogAppEvents=1';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-    
-	<style>
+
+    <style>
 		.camposForm {-webkit-transition: all 0.5s ease;-moz-transition: all 0.5s ease;-o-transition: all 0.5s ease;transition: all 0.5s ease;opacity: 1;}
 		.camposForm.esconde {min-height: 0px;max-height: 0px;overflow: hidden;opacity: 0}
 	</style>
-	
 </head>
 <body>
 
@@ -157,58 +156,57 @@
             <!-- Sign Up Form
         ================================================= -->
             <form class="sign-up-form" action="" runat="server" method="post">
-               	<a href="index.html" class="logo">
-					<img src="images/logo.png" alt="Travel Share" />
-				</a>
-               	<div id="formRegistrar" class="camposForm">
-					<input type="hidden" name="acao" value="inscrever" />
-					<h2 class="text-white">Crie sua conta</h2>
-					<div class="line-divider"></div>
-					<div class="form-wrapper">
-						<p class="signup-text">Inscreva-se agora e conheça pessoas incríveis ao redor do mundo!</p>
-						<div>
-							<fieldset class="form-group">
-								<input type="text" class="form-control" id="USU_NOME" placeholder="Digite seu nome" />
-							</fieldset>
-							<fieldset class="form-group">
-								<input type="email" class="form-control" id="USU_EMAIL" placeholder="Digite seu e-mail" />
-							</fieldset>
-							<fieldset class="form-group">
-								<input type="password" class="form-control" id="USU_SENHA" placeholder="Digite uma senha" />
-							</fieldset>
-						</div>
-						<p>Ao assinar você concorda com os <a href="javascript:void(0);">termos</a></p>
-						<input type="submit" class="btn-secondary" value="Inscrever-se" />
-					</div>
-					<a href="javascript:void(0);" class="btnTemConta">Já tem uma conta?</a>
-					<div class="cadastrar-face">
-					   <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-					</div>
-               	</div>
-               	<div id="formLogin" class="camposForm esconde">
-               		<input type="hidden" name="acao" value="login" />
-					<h2 class="text-white">Login</h2>
-					<div class="line-divider"></div>
-					<div class="form-wrapper">
-						<p class="signup-text">Faça login na sua conta</p>
-						<div>
-							<fieldset class="form-group">
-								<input type="email" class="form-control" id="USU_LOG_EMAIL" placeholder="Seu email" />
-							</fieldset>
-							<fieldset class="form-group">
-								<input type="password" class="form-control" id="USU_LOG_SENHA" placeholder="Sua senha" />
-							</fieldset>
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="Travel Share" />
+                </a>
+                <div id="formRegistrar" class="camposForm">
+                    <input type="hidden" name="acao" value="inscrever" />
+                    <h2 class="text-white">Crie sua conta</h2>
+                    <div class="line-divider"></div>
+                    <div class="form-wrapper">
+                        <p class="signup-text">Inscreva-se agora e conheça pessoas incríveis ao redor do mundo!</p>
+                        <div>
+                            <fieldset class="form-group">
+                                <input type="text" class="form-control" id="USU_NOME" placeholder="Digite seu nome" />
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="email" class="form-control" id="USU_EMAIL" placeholder="Digite seu e-mail" />
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="password" class="form-control" id="USU_SENHA" placeholder="Digite uma senha" />
+                            </fieldset>
+                        </div>
+                        <p>Ao assinar você concorda com os <a href="javascript:void(0);">termos</a></p>
+                        <input type="submit" class="btn-secondary" value="Inscrever-se" />
+                    </div>
+                    <a href="javascript:void(0);" class="btnTemConta">Já tem uma conta?</a>
+                    <div class="cadastrar-face">
+                        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    </div>
+                </div>
+                <div id="formLogin" class="camposForm esconde">
+                    <input type="hidden" name="acao" value="login" />
+                    <h2 class="text-white">Login</h2>
+                    <div class="line-divider"></div>
+                    <div class="form-wrapper">
+                        <p class="signup-text">Faça login na sua conta</p>
+                        <div>
+                            <fieldset class="form-group">
+                                <input type="email" class="form-control" id="USU_LOG_EMAIL" placeholder="Seu email" />
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <input type="password" class="form-control" id="USU_LOG_SENHA" placeholder="Sua senha" />
+                            </fieldset>
                             <a href="javascript:void(0);" class="btnEsqueciSenha">Esqueceu sua senha?</a>
-						</div>
-						<input type="submit" class="btn-secondary" value="Logar" />
-					</div>
-					
-					 <a href="javascript:void(0);" class="btnCriarConta">Não tem uma conta ainda?</a>
-					<div class="logar-face">
-						<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-					</div>
-                      
-               	</div>
+                        </div>
+                        <input type="submit" class="btn-secondary" value="Logar" />
+                    </div>
+
+                    <a href="javascript:void(0);" class="btnCriarConta">Não tem uma conta ainda?</a>
+                    <div class="logar-face">
+                        <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    </div>
+                </div>
                 <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
             </form>
             <!-- Sign Up Form End -->
@@ -281,17 +279,17 @@
                 <ul class="facts-list">
                     <li>
                         <div class="fact-icon"><i class="icon ion-ios-people-outline"></i></div>
-                        <h3 class="text-white">1,01,242</h3>
+                        <h3 class="text-white" id="total_pessoas" runat="server"></h3>
                         <p>Pessoas cadastradas</p>
                     </li>
                     <li>
                         <div class="fact-icon"><i class="icon ion-images"></i></div>
-                        <h3 class="text-white">21,01,242</h3>
+                        <h3 class="text-white" id="total_post" runat="server"></h3>
                         <p>Posts publicados</p>
                     </li>
                     <li>
                         <div class="fact-icon"><i class="icon ion-checkmark-round"></i></div>
-                        <h3 class="text-white">41,242</h3>
+                        <h3 class="text-white" id="pessoas_online" runat="server"></h3>
                         <p>Pessoas online</p>
                     </li>
                 </ul>
@@ -467,7 +465,7 @@
     <script src="js/jquery.appear.min.js"></script>
     <script src="js/jquery.incremental-counter.js"></script>
     <script src="js/script.js"></script>
-    
+
     <script>
         $(document).ready(function () {
             $(".btnTemConta").click(function () {
@@ -479,6 +477,6 @@
                 $("#formRegistrar").removeClass("esconde");
             });
         });
-	</script>
+    </script>
 </body>
 </html>
