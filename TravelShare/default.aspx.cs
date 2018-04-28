@@ -10,7 +10,7 @@ using TravelShare.Modules;
 
 namespace TravelShare
 {
-    public partial class _default1 : Modules.PageBase
+    public partial class default1 : Modules.PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +26,8 @@ namespace TravelShare
                     break;
 
                 case "sair":
+                    Utils.LogadoAgora[UsuarioLogado].IsOnline = false;
+                    UsuarioLogado = null;
                     Web.DestroySessionAndCookies(Context.ApplicationInstance);
                     Response.Redirect("/");
                     break;

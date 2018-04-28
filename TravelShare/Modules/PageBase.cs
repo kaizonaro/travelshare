@@ -68,7 +68,8 @@ namespace TravelShare.Modules
 
             if (UsuarioLogado != null)
             {
-                //TODO Escrever cookie
+                Utils.LogadoAgora[UsuarioLogado].IsOnline = true;
+
                 HttpCookie coo = new HttpCookie("USU_ID", UsuarioLogado.USU_ID.ToString().InnCrypt());
                 coo.Expires = DateTime.Now.AddMonths(1);
                 Response.AppendCookie(coo);

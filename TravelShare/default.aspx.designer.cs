@@ -10,7 +10,7 @@
 namespace TravelShare {
     
     
-    public partial class _default1 {
+    public partial class default1 {
         
         /// <summary>
         /// incremental_counter control.
