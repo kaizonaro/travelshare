@@ -17,6 +17,10 @@ namespace TravelShare
             //visible = false nao envia o HTML pro cliente (não é display:none)
             menu_timeline_desk.Visible = Request.IsDesktop();
             menu_timeline_mobile.Visible = Request.IsMobile();
+            //Request.IsIpad(); ?????? o que fazer ??????
+
+            Page.Title = "Perfil de " + UsuarioLogado.USU_NOME_COMPLETO.ToProper();
+            USU_NOME.InnerHtml = UsuarioLogado.USU_NOME_COMPLETO.ToProper();
         }
     }
 }

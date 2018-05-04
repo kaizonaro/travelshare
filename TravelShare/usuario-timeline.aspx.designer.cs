@@ -22,6 +22,24 @@ namespace TravelShare {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_timeline_desk;
         
         /// <summary>
+        /// USU_FOTO_PERFIL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage USU_FOTO_PERFIL;
+        
+        /// <summary>
+        /// USU_NOME control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl USU_NOME;
+        
+        /// <summary>
         /// menu_timeline_mobile control.
         /// </summary>
         /// <remarks>
