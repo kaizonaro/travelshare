@@ -1,0 +1,17 @@
+﻿<head>
+</head>
+<body>
+    <li>
+        <a href="/perfil/u/##USU_USUARIO##" title="##USU_NOME##">
+            <img src="/API/GetImage.aspx?USU_ID=##USU_ID##" alt="" class="img-responsive profile-photo" />
+            <if>
+                <expression>
+                    ##Online##
+                </expression>
+                <true>
+                    <span class="online-dot"></span>
+                </true>
+            </if>
+        </a>
+    </li>
+</body>
