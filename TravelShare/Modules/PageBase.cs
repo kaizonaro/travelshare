@@ -68,6 +68,7 @@ namespace TravelShare.Modules
 
             if (UsuarioLogado == null && !(Page is default1))
             {
+                RedirectUrl = Request.RawUrl;
                 Response.Redirect("/default.aspx");
             }
         }
@@ -89,11 +90,8 @@ namespace TravelShare.Modules
             }
             set
             {
-                if (value.IsURL())
-                {
-                    HttpCookie coo = new HttpCookie("REDIRECT", value) { Expires = DateTime.Now.AddMonths(1) };
-                    Response.AppendCookie(coo);
-                }
+                HttpCookie coo = new HttpCookie("REDIRECT", value) { Expires = DateTime.Now.AddMonths(1) };
+                Response.AppendCookie(coo);
             }
         }
 
