@@ -3,6 +3,7 @@ using InnerLibs.LINQ;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
 using System.Reflection;
 using System.Web;
 
@@ -12,6 +13,45 @@ namespace TravelShare.Modules
     {
         public static OnlineList<Usuario, int> LogadoAgora = new OnlineList<Usuario, int>(x => x.USU_ID);
         public static Triforce<AcessaBanco> Engine = new Triforce<AcessaBanco>(Assembly.GetExecutingAssembly());
+
+        public static AJAX.Response EnviaEmail(string emailDestinatario, string Assunto, string Mensagem)
+        {
+            AJAX.Response msg = new AJAX.Response();
+            string nomeRemetente = "Travel Share";
+            string emailRemetente = "nao-responda@travelshare.com.br";
+            string senha = "Tr@v&l125*";
+            MailMessage objEmail = new MailMessage();
+            objEmail.From = new MailAddress(nomeRemetente + "<" + emailRemetente + ">");
+            objEmail.To.Add(emailDestinatario);
+            objEmail.Priority = MailPriority.Normal;
+            objEmail.IsBodyHtml = true;
+            objEmail.Subject = Assunto;
+            objEmail.Body = Mensagem;
+            objEmail.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
+            objEmail.BodyEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
+            SmtpClient objSmtp = new SmtpClient();
+            objSmtp.Credentials = new System.Net.NetworkCredential(emailRemetente, senha);
+            objSmtp.Host = "smtp.travelshare.com.br";
+            objSmtp.Port = 587;
+            try
+            {
+                objSmtp.Send(objEmail);
+                msg.message = "E-mail enviado com sucesso!";
+                msg.status = "success";
+                msg.response = null;
+            }
+            catch (Exception ex)
+            {
+                msg.message = "Ocorreram problemas no envio do e-mail";
+                msg.response = ex;
+                msg.status = "error";
+            }
+            finally
+            {
+                objEmail.Dispose();
+            }
+            return msg;
+        }
     }
 
     // A classe pagebase será usada como base em todas as paginas web, para fazer validação de usuarios online, cookies, sessao etc
@@ -19,13 +59,41 @@ namespace TravelShare.Modules
     {
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            Debug.WriteLine("PreIniciado");
-
             HttpCookie coo = Request.Cookies["USU_ID"];
 
             if (coo != null && coo.Value.IsNotBlank())
             {
                 Logar(null, null, coo.Value.UnnCrypt());
+            }
+
+            if (UsuarioLogado == null && !(Page is default1))
+            {
+                Response.Redirect("/default.aspx");
+            }
+        }
+
+        public string RedirectUrl
+        {
+            get
+            {
+                HttpCookie coo = Request.Cookies["REDIRECT"];
+
+                if (coo != null && coo.Value.IsNotBlank())
+                {
+                    return coo.Value;
+                }
+                else
+                {
+                    return "/usuario-timeline.aspx";
+                }
+            }
+            set
+            {
+                if (value.IsURL())
+                {
+                    HttpCookie coo = new HttpCookie("REDIRECT", value) { Expires = DateTime.Now.AddMonths(1) };
+                    Response.AppendCookie(coo);
+                }
             }
         }
 

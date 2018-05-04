@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TravelShare.JS {
+namespace TravelShare.includes {
     
     
-    public partial class sistema {
+    public partial class BarraAtividades {
         
         /// <summary>
-        /// head control.
+        /// nome_usuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nome_usuario;
         
         /// <summary>
-        /// ConteudoPagina control.
+        /// feed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ConteudoPagina;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl feed;
     }
 }

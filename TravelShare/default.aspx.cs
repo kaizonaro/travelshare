@@ -38,8 +38,7 @@ namespace TravelShare
 
             if (UsuarioLogado != null)
             {
-                Response.WriteEnd(UsuarioLogado.USU_NOME_COMPLETO);
-                //TODO Redirect para interna
+                Response.Redirect(RedirectUrl);
             }
 
             ListarUsuarios();
