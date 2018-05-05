@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using InnerLibs;
+using InnerLibs.HtmlParser;
 using InnerLibs.LINQ;
 using TravelShare.Modules;
 
@@ -19,19 +21,22 @@ namespace TravelShare
             switch (acao.ToLower())
             {
                 case "inscrever":
-                //TODO inscrever e dar redirect pro editar perfil. Disparar email de confirmacao
-                case "login":
-                    string msg = "";
-                    msg = Logar(Request["USU_EMAIL"], Request["USU_SENHA"].ToString().ToMD5String());
+                    var el1 = new HtmlElement("span", Inscrever(Request["USU_EMAIL"], Request["USU_SENHA"].ToString(), Request["USU_NOME"]));
+                    el1.Style.color = Color.Red.ToHexadecimal();
+                    mensagem_inscrever.InnerHtml = el1.ToString();
                     break;
-
-                case "sair":
-                    Utils.LogadoAgora[UsuarioLogado].IsOnline = false;
-                    UsuarioLogado = null;
-                    Web.DestroySessionAndCookies(Context.ApplicationInstance);
+                case "login":
+                    var el2 = new HtmlElement("span", Logar(Request["USU_EMAIL"], Request["USU_SENHA"].ToString().ToMD5String()));
+                    el2.Style.color = Color.Red.ToHexadecimal();
+                    mensagem_logar.InnerHtml = el2.ToString();
+                    break;
+                case "sair":                  
+                    UsuarioLogado = null;              
                     Response.Redirect("/");
                     break;
-
+                case "confirmar":
+                    Confirmar(Request["USU_ID"]);
+                    break;
                 default:
                     break;
             }
@@ -41,6 +46,7 @@ namespace TravelShare
                 Response.Redirect(RedirectUrl);
             }
 
+            //a partir daqui carregas os detalhes da pagina
             ListarUsuarios();
         }
 

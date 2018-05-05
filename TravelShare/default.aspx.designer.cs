@@ -13,6 +13,24 @@ namespace TravelShare {
     public partial class default1 {
         
         /// <summary>
+        /// mensagem_inscrever control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensagem_inscrever;
+        
+        /// <summary>
+        /// mensagem_logar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensagem_logar;
+        
+        /// <summary>
         /// incremental_counter control.
         /// </summary>
         /// <remarks>

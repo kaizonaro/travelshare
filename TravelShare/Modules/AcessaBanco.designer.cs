@@ -94,6 +94,8 @@ namespace TravelShare.Modules
 		
 		private string _USU_USUARIO;
 		
+		private bool _USU_ATIVO;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -112,6 +114,8 @@ namespace TravelShare.Modules
     partial void OnUSU_FOTO_PERFILChanged();
     partial void OnUSU_USUARIOChanging(string value);
     partial void OnUSU_USUARIOChanged();
+    partial void OnUSU_ATIVOChanging(bool value);
+    partial void OnUSU_ATIVOChanged();
     #endregion
 		
 		public Usuario()
@@ -255,6 +259,26 @@ namespace TravelShare.Modules
 					this._USU_USUARIO = value;
 					this.SendPropertyChanged("USU_USUARIO");
 					this.OnUSU_USUARIOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_ATIVO", DbType="Bit NOT NULL")]
+		public bool USU_ATIVO
+		{
+			get
+			{
+				return this._USU_ATIVO;
+			}
+			set
+			{
+				if ((this._USU_ATIVO != value))
+				{
+					this.OnUSU_ATIVOChanging(value);
+					this.SendPropertyChanging();
+					this._USU_ATIVO = value;
+					this.SendPropertyChanged("USU_ATIVO");
+					this.OnUSU_ATIVOChanged();
 				}
 			}
 		}

@@ -176,7 +176,7 @@
                     <h2 class="text-white">Crie sua conta</h2>
                     <div class="line-divider"></div>
                     <div class="form-wrapper">
-                        <p class="signup-text">Inscreva-se agora e conheça pessoas incríveis ao redor do mundo!</p>
+                        <p class="signup-text" id="mensagem_inscrever" runat="server">Inscreva-se agora e conheça pessoas incríveis ao redor do mundo!</p>
                         <div>
                             <fieldset class="form-group">
                                 <input type="text" class="form-control" name="USU_NOME" placeholder="Digite seu nome" />
@@ -201,7 +201,7 @@
                     <h2 class="text-white">Login</h2>
                     <div class="line-divider"></div>
                     <div class="form-wrapper">
-                        <p class="signup-text">Faça login na sua conta</p>
+                        <p class="signup-text" id="mensagem_logar" runat="server">Faça login na sua conta</p>
                         <div>
                             <fieldset class="form-group">
                                 <input type="email" class="form-control" name="USU_EMAIL" placeholder="Seu email" />
