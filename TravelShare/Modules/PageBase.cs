@@ -90,7 +90,15 @@ namespace TravelShare.Modules
             {
                 if (value == null)
                 {
-                    Utils.LogadoAgora[UsuarioLogado].IsOnline = false;
+                    try
+                    {
+                        Utils.LogadoAgora[UsuarioLogado].IsOnline = false;
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
                     Web.DestroySessionAndCookies(Context.ApplicationInstance);
                 }
                 Session["UsuarioLogado"] = value;
@@ -199,25 +207,29 @@ namespace TravelShare.Modules
                     {
                         return "Senha Inválida " + Emoji.Worried;
                     }
-
+                 
                     UsuarioLogado = xxx.Usuarios.FirstOrDefault(x => x.USU_EMAIL == Email && x.USU_SENHA == Senha);
-
-                    if (!UsuarioLogado.USU_ATIVO)
-                    {
-                        EmailConfirmacao(UsuarioLogado);
-                        return "Você ainda precisa confirmar seu email.";
-                    }
+                   
                 }
             }
 
             if (UsuarioLogado != null)
             {
-                Utils.LogadoAgora[UsuarioLogado].IsOnline = true;
+                if (!UsuarioLogado.USU_ATIVO)
+                {
+                    EmailConfirmacao(UsuarioLogado);
+                    return "Você ainda precisa confirmar seu email.";
+                }
+                else
+                {
+                    Utils.LogadoAgora[UsuarioLogado].IsOnline = true;
 
-                HttpCookie coo = new HttpCookie("USU_ID", UsuarioLogado.USU_ID.ToString().InnCrypt());
-                coo.Expires = DateTime.Now.AddMonths(1);
-                Response.AppendCookie(coo);
-                return "OK";
+                    HttpCookie coo = new HttpCookie("USU_ID", UsuarioLogado.USU_ID.ToString().InnCrypt());
+                    coo.Expires = DateTime.Now.AddMonths(1);
+                    Response.AppendCookie(coo);
+                    return "OK";
+                }
+
             }
             else
             {
