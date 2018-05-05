@@ -16,11 +16,12 @@
             <!--MENU DO TIMELINE DO USUÁRIO-->
             <uc2:menuUsuarioLogado runat="server" ID="menuUsuarioLogado" />
         </div>
+        
         <div id="page-contents">
             <div class="row">
                 <div class="col-md-3"></div>
-                <div class="col-md-7">
-                    
+                
+                <div class="col-md-7">                    
                     <!-- BOX PARA POSTAGEM -->
                     <uc3:BoxPostagem runat="server" ID="BoxPostagem" />
                     
