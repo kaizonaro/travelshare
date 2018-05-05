@@ -7,45 +7,63 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace TravelShare {
+namespace TravelShare.includes {
     
     
-    public partial class usuario_timeline {
+    public partial class menu_usuario_logado {
         
         /// <summary>
-        /// Controle menuUsuarioLogado.
+        /// Controle menu_timeline_desk.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::TravelShare.includes.menu_usuario_logado menuUsuarioLogado;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_timeline_desk;
         
         /// <summary>
-        /// Controle BoxPostagem.
+        /// Controle USU_FOTO_PERFIL.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::TravelShare.includes.BoxPostagem BoxPostagem;
+        protected global::System.Web.UI.HtmlControls.HtmlImage USU_FOTO_PERFIL;
         
         /// <summary>
-        /// Controle posts_usuario.
+        /// Controle USU_NOME.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts_usuario;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl USU_NOME;
         
         /// <summary>
-        /// Controle BarraAtividades.
+        /// Controle menu_timeline_mobile.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::TravelShare.includes.BarraAtividades BarraAtividades;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_timeline_mobile;
+        
+        /// <summary>
+        /// Controle nome_usuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nome_usuario;
+        
+        /// <summary>
+        /// Controle ocupacao.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ocupacao;
     }
 }

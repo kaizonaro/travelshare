@@ -4,17 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using InnerLibs;
-using TravelShare.Modules;
 
-namespace TravelShare
+namespace TravelShare.includes
 {
-    public partial class usuario_timeline : PageBase
+    public partial class BoxPostagem : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Page.Title = "Perfil de " + UsuarioLogado.USU_NOME_COMPLETO.ToProper();
-            
+
         }
     }
 }
