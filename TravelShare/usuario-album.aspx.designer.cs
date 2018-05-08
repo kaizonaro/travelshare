@@ -13,31 +13,13 @@ namespace TravelShare {
     public partial class usuario_timeline {
         
         /// <summary>
-        /// Controle menuUsuarioLogado.
+        /// Controle menuUsuarioLogado1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::TravelShare.includes.menu_usuario_logado menuUsuarioLogado;
-        
-        /// <summary>
-        /// Controle BoxPostagem.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::TravelShare.includes.BoxPostagem BoxPostagem;
-        
-        /// <summary>
-        /// Controle posts_usuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts_usuario;
+        protected global::TravelShare.includes.menu_usuario_logado menuUsuarioLogado1;
         
         /// <summary>
         /// Controle BarraAtividades.
