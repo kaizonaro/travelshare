@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/sistema.Master" AutoEventWireup="true" CodeBehind="usuario-sobre.aspx.cs" Inherits="TravelShare.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/sistema.Master" AutoEventWireup="true" CodeBehind="usuario-sobre.aspx.cs" Inherits="TravelShare.usuario_sobre" %>
 
 <%@ Register Src="~/includes/BarraAtividades.ascx" TagPrefix="uc1" TagName="BarraAtividades" %>
 <%@ Register Src="~/includes/menu-usuario-logado.ascx" TagPrefix="uc2" TagName="menuUsuarioLogado" %>
 <%@ Register Src="~/includes/BoxPostagem.ascx" TagPrefix="uc3" TagName="BoxPostagem" %>
-
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <uc1:menuusuariologado runat="server" ID="menuusuariologado" />
@@ -78,10 +77,9 @@
                         </div>
                     </div>
                 </div>
-                 <%--BARRA DE ATIVIDADES--%>
+                <%--BARRA DE ATIVIDADES--%>
                 <uc1:BarraAtividades runat="server" ID="BarraAtividades" />
             </div>
         </div>
     </div>
-
 </asp:Content>

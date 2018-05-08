@@ -9,12 +9,11 @@ using TravelShare.Modules;
 
 namespace TravelShare
 {
-    public partial class usuario_timeline : PageBase
+    public partial class usuario_album : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Title = "Perfil de " + UsuarioLogado.USU_NOME_COMPLETO.ToProper();
-            
         }
     }
 }
