@@ -313,91 +313,39 @@
     <section id="live-feed">
         <div class="container wrapper">
             <h1 class="section-title slideDown">online</h1>
-            <ul class="online-users list-inline slideUp" id="usuario">
-                <template v-for="usuario in usuarios">
+            <ul class="online-users list-inline slideUp " id="usuarios_online">
+                <template v-for="usu in usuarios">
                 <li>
-                    <a v-bind:href="'/perfil/u/'+ usuario.USU_USUARIO" v-bind:title="usuario.USU_NOME_CURTO">
-                        <img v-bind:src="usuario.USU_FOTO_PERFIL" v-bind:alt="usuario.USU_NOME_CURTO" class="img-responsive profile-photo" />
-                        <span v-if="usuario.Online" class="online-dot"></span>
+                    <a v-bind:href="'/perfil/u/'+ usu.USU_USUARIO" v-bind:title="usu.USU_NOME_CURTO">
+                        <img v-bind:src="usu.USU_FOTO_PERFIL" v-bind:alt="usu.USU_NOME_CURTO" class="img-responsive profile-photo" />
+                        <span v-if="usu.Online" class="online-dot"></span>
                     </a>
                 </li>
                     </template>
             </ul>
             <h2 class="sub-title">veja o que as pessoas estão falando</h2>
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-md-offset-2">
+                <div class="col-md-4 col-sm-6 col-md-offset-2" id="usuarios_atv_L">
+                    <template v-for="usuario in usuarios">
                     <div class="feed-item">
-                        <img src="images/users/user-1.jpg" alt="user" class="img-responsive profile-photo-sm" />
+                        <img :src="usuario.USU_FOTO_PERFIL" :alt="usuario.USU_NOME_CURTO" class="img-responsive profile-photo-sm" />
                         <div class="live-activity">
-                            <p><a href="#" class="profile-link">Sarah</a> just posted a photo from Moscow</p>
+                            <p><a href="#" class="profile-link">{{usuario.USU_NOME}}</a> just posted a photo from Moscow</p>
                             <p class="text-muted">20 Secs ago</p>
                         </div>
                     </div>
-                    <div class="feed-item">
-                        <img src="images/users/user-4.jpg" alt="user" class="img-responsive profile-photo-sm" />
-                        <div class="live-activity">
-                            <p><a href="#" class="profile-link">John</a> Published a post from Sydney</p>
-                            <p class="text-muted">1 min ago</p>
-                        </div>
-                    </div>
-                    <div class="feed-item">
-                        <img src="images/users/user-10.jpg" alt="user" class="img-responsive profile-photo-sm" />
-                        <div class="live-activity">
-                            <p><a href="#" class="profile-link">Julia</a> Updated her status from London</p>
-                            <p class="text-muted">5 mins ago</p>
-                        </div>
-                    </div>
-                    <div class="feed-item">
-                        <img src="images/users/user-3.jpg" alt="user" class="img-responsive profile-photo-sm" />
-                        <div class="live-activity">
-                            <p><a href="#" class="profile-link">Sophia</a> Share a photo from Virginia</p>
-                            <p class="text-muted">10 mins ago</p>
-                        </div>
-                    </div>
-                    <div class="feed-item">
-                        <img src="images/users/user-2.jpg" alt="user" class="img-responsive profile-photo-sm" />
-                        <div class="live-activity">
-                            <p><a href="#" class="profile-link">Linda</a> just posted a photo from Toronto</p>
-                            <p class="text-muted">20 mins ago</p>
-                        </div>
-                    </div>
+                        </template>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 " id="usuarios_atv_R">
+                    <template v-for="usuario in usuarios">
                     <div class="feed-item">
-                        <img src="images/users/user-17.jpg" alt="user" class="img-responsive profile-photo-sm" />
+                        <img :src="usuario.USU_FOTO_PERFIL" :alt="usuario.USU_NOME_CURTO" class="img-responsive profile-photo-sm" />
                         <div class="live-activity">
-                            <p><a href="#" class="profile-link">Nora</a> Shared an article from Ohio</p>
-                            <p class="text-muted">22 mins ago</p>
+                            <p><a href="#" class="profile-link">{{usuario.USU_NOME}}</a> just posted a photo from Moscow</p>
+                            <p class="text-muted">20 Secs ago</p>
                         </div>
                     </div>
-                    <div class="feed-item">
-                        <img src="images/users/user-18.jpg" alt="user" class="img-responsive profile-photo-sm" />
-                        <div class="live-activity">
-                            <p><a href="#" class="profile-link">Addison</a> Created a poll from Barcelona</p>
-                            <p class="text-muted">23 mins ago</p>
-                        </div>
-                    </div>
-                    <div class="feed-item">
-                        <img src="images/users/user-11.jpg" alt="user" class="img-responsive profile-photo-sm" />
-                        <div class="live-activity">
-                            <p><a href="#" class="profile-link">Diana</a> Posted a video from Captown</p>
-                            <p class="text-muted">27 mins ago</p>
-                        </div>
-                    </div>
-                    <div class="feed-item">
-                        <img src="images/users/user-1.jpg" alt="user" class="img-responsive profile-photo-sm" />
-                        <div class="live-activity">
-                            <p><a href="#" class="profile-link">Sarah</a> Shared friend's post from Moscow</p>
-                            <p class="text-muted">30 mins ago</p>
-                        </div>
-                    </div>
-                    <div class="feed-item">
-                        <img src="images/users/user-16.jpg" alt="user" class="img-responsive profile-photo-sm" />
-                        <div class="live-activity">
-                            <p><a href="#" class="profile-link">Emma</a> Started a new job at Torronto</p>
-                            <p class="text-muted">33 mins ago</p>
-                        </div>
-                    </div>
+                        </template>
                 </div>
             </div>
         </div>
@@ -497,12 +445,19 @@
                 $("#formLogin").addClass("esconde");
                 $("#formRegistrar").removeClass("esconde");
             });
-            var app_usuarios
+            var app_usuarios_L
+            var app_usuarios_R
             fetch("/api/api.asmx/Usuarios").then(function (response) {
                 return response.json();
             }).then(function (x) {
-                app_usuarios = new Vue({
-                    el: '#usuario',
+                app_usuarios_L = new Vue({
+                    el: '#usuarios_atv_L',
+                    data: {
+                        usuarios: x
+                    }
+                })
+                 app_usuarios_R = new Vue({
+                    el: '#usuarios_atv_R',
                     data: {
                         usuarios: x
                     }
