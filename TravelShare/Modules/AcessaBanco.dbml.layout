@@ -2,11 +2,78 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AcessaBanco">
   <DataContextMoniker Name="/AcessaBanco" />
   <nestedChildShapes>
-    <classShape Id="85dcb1ad-9e3d-4ded-af96-df99d7788103" absoluteBounds="4.375, 1.125, 2, 2.3478011067708335">
+    <classShape Id="85dcb1ad-9e3d-4ded-af96-df99d7788103" absoluteBounds="0.75, 1, 2, 2.3478011067708344">
       <DataClassMoniker Name="/AcessaBanco/Usuario" />
       <nestedChildShapes>
-        <elementListCompartment Id="d61dc09c-231e-4ab8-88a6-5e2d72e7a167" absoluteBounds="4.39, 1.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d61dc09c-231e-4ab8-88a6-5e2d72e7a167" absoluteBounds="0.76500000059604645, 1.4600000008940697, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="a557b0b7-7706-4bdf-b65b-a3372888ada9" absoluteBounds="3.375, 0.5, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/AcessaBanco/Post" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b59b9c97-4bfe-484f-8e4d-ef608de23179" absoluteBounds="3.3900000005960464, 0.96000000089406967, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.63544840512797); (3.375 : 1.63544840512797)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcessaBanco/Usuario/Usuario_Post" />
+      <nodes>
+        <classShapeMoniker Id="85dcb1ad-9e3d-4ded-af96-df99d7788103" />
+        <classShapeMoniker Id="a557b0b7-7706-4bdf-b65b-a3372888ada9" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2dbbe74d-7ce1-43ff-b411-394c7b41f924" absoluteBounds="6.25, 1.25, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/AcessaBanco/Comentario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="046da901-57f5-48ec-a0e2-3779f5728628" absoluteBounds="6.2650000005960464, 1.7100000008940697, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.95552987153284 : 3.02089680989583); (6.95552987153284 : 3.27089680953572); (7.55849251553703 : 3.27089680953572); (7.55849251553703 : 3.02089680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AcessaBanco/Comentario/Comentario_Comentario" />
+      <nodes>
+        <classShapeMoniker Id="2dbbe74d-7ce1-43ff-b411-394c7b41f924" />
+        <classShapeMoniker Id="2dbbe74d-7ce1-43ff-b411-394c7b41f924" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 1.76044840512797); (6.25 : 1.76044840512797)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcessaBanco/Post/Post_Comentario" />
+      <nodes>
+        <classShapeMoniker Id="a557b0b7-7706-4bdf-b65b-a3372888ada9" />
+        <classShapeMoniker Id="2dbbe74d-7ce1-43ff-b411-394c7b41f924" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.67714680971578); (4.10416666666667 : 2.67714680971578 : JumpStart); (4.27083333333333 : 2.67714680971578 : JumpEnd); (6.25 : 2.67714680971578)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcessaBanco/Usuario/Usuario_Comentario" />
+      <nodes>
+        <classShapeMoniker Id="85dcb1ad-9e3d-4ded-af96-df99d7788103" />
+        <classShapeMoniker Id="2dbbe74d-7ce1-43ff-b411-394c7b41f924" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1cbb1375-8404-4af2-93c3-8fa811f2bc13" absoluteBounds="3, 5.25, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/AcessaBanco/Curtida" />
+      <nestedChildShapes>
+        <elementListCompartment Id="174d25a8-1da3-4742-b3ae-c26e728fd4c2" absoluteBounds="3.0150000000000006, 5.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.93549875776851 : 3.02089680989583); (7.93549875776851 : 6.13544840494792); (5 : 6.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcessaBanco/Comentario/Comentario_Curtida" />
+      <nodes>
+        <classShapeMoniker Id="2dbbe74d-7ce1-43ff-b411-394c7b41f924" />
+        <classShapeMoniker Id="1cbb1375-8404-4af2-93c3-8fa811f2bc13" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.1875 : 2.27089680989583); (4.1875 : 5.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcessaBanco/Post/Post_Curtida" />
+      <nodes>
+        <classShapeMoniker Id="a557b0b7-7706-4bdf-b65b-a3372888ada9" />
+        <classShapeMoniker Id="1cbb1375-8404-4af2-93c3-8fa811f2bc13" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 3.34780110677083); (1.75 : 6.13544840494792); (3 : 6.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AcessaBanco/Usuario/Usuario_Curtida" />
+      <nodes>
+        <classShapeMoniker Id="85dcb1ad-9e3d-4ded-af96-df99d7788103" />
+        <classShapeMoniker Id="1cbb1375-8404-4af2-93c3-8fa811f2bc13" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

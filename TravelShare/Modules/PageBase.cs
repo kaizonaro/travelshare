@@ -11,7 +11,6 @@ namespace TravelShare.Modules
 {
     public static class Utils
     {
-        public static Triforce<AcessaBanco> Engine = new Triforce<AcessaBanco>(Assembly.GetExecutingAssembly());
         public static OnlineList<Usuario, int> LogadoAgora = new OnlineList<Usuario, int>(x => x.USU_ID);
 
         public static AJAX.Response EnviaEmail(string emailDestinatario, string Assunto, string Mensagem)
@@ -96,7 +95,6 @@ namespace TravelShare.Modules
                     }
                     catch (Exception)
                     {
-
                     }
 
                     Web.DestroySessionAndCookies(Context.ApplicationInstance);
@@ -207,9 +205,8 @@ namespace TravelShare.Modules
                     {
                         return "Senha Inválida " + Emoji.Worried;
                     }
-                 
+
                     UsuarioLogado = xxx.Usuarios.FirstOrDefault(x => x.USU_EMAIL == Email && x.USU_SENHA == Senha);
-                   
                 }
             }
 
@@ -229,7 +226,6 @@ namespace TravelShare.Modules
                     Response.AppendCookie(coo);
                     return "OK";
                 }
-
             }
             else
             {

@@ -33,6 +33,15 @@ namespace TravelShare.Modules
     partial void InsertUsuario(Usuario instance);
     partial void UpdateUsuario(Usuario instance);
     partial void DeleteUsuario(Usuario instance);
+    partial void InsertPost(Post instance);
+    partial void UpdatePost(Post instance);
+    partial void DeletePost(Post instance);
+    partial void InsertComentario(Comentario instance);
+    partial void UpdateComentario(Comentario instance);
+    partial void DeleteComentario(Comentario instance);
+    partial void InsertCurtida(Curtida instance);
+    partial void UpdateCurtida(Curtida instance);
+    partial void DeleteCurtida(Curtida instance);
     #endregion
 		
 		public AcessaBanco() : 
@@ -72,6 +81,30 @@ namespace TravelShare.Modules
 				return this.GetTable<Usuario>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Post> Posts
+		{
+			get
+			{
+				return this.GetTable<Post>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Comentario> Comentarios
+		{
+			get
+			{
+				return this.GetTable<Comentario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Curtida> Curtidas
+		{
+			get
+			{
+				return this.GetTable<Curtida>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
@@ -95,6 +128,12 @@ namespace TravelShare.Modules
 		private string _USU_USUARIO;
 		
 		private bool _USU_ATIVO;
+		
+		private EntitySet<Post> _Posts;
+		
+		private EntitySet<Comentario> _Comentarios;
+		
+		private EntitySet<Curtida> _Interacoes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -120,6 +159,9 @@ namespace TravelShare.Modules
 		
 		public Usuario()
 		{
+			this._Posts = new EntitySet<Post>(new Action<Post>(this.attach_Posts), new Action<Post>(this.detach_Posts));
+			this._Comentarios = new EntitySet<Comentario>(new Action<Comentario>(this.attach_Comentarios), new Action<Comentario>(this.detach_Comentarios));
+			this._Interacoes = new EntitySet<Curtida>(new Action<Curtida>(this.attach_Interacoes), new Action<Curtida>(this.detach_Interacoes));
 			OnCreated();
 		}
 		
@@ -279,6 +321,941 @@ namespace TravelShare.Modules
 					this._USU_ATIVO = value;
 					this.SendPropertyChanged("USU_ATIVO");
 					this.OnUSU_ATIVOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Post", Storage="_Posts", ThisKey="USU_ID", OtherKey="USU_ID")]
+		public EntitySet<Post> Posts
+		{
+			get
+			{
+				return this._Posts;
+			}
+			set
+			{
+				this._Posts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Comentario", Storage="_Comentarios", ThisKey="USU_ID", OtherKey="USU_ID")]
+		public EntitySet<Comentario> Comentarios
+		{
+			get
+			{
+				return this._Comentarios;
+			}
+			set
+			{
+				this._Comentarios.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Curtida", Storage="_Interacoes", ThisKey="USU_ID", OtherKey="USU_ID")]
+		public EntitySet<Curtida> Interacoes
+		{
+			get
+			{
+				return this._Interacoes;
+			}
+			set
+			{
+				this._Interacoes.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Posts(Post entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Posts(Post entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Comentarios(Comentario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Comentarios(Comentario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+		
+		private void attach_Interacoes(Curtida entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = this;
+		}
+		
+		private void detach_Interacoes(Curtida entity)
+		{
+			this.SendPropertyChanging();
+			entity.Usuario = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Post")]
+	public partial class Post : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PST_ID;
+		
+		private int _USU_ID;
+		
+		private string _PST_CONTEUDO;
+		
+		private string _PST_HASH = default(string);
+		
+		private System.Nullable<System.DateTime> _PST_DH_CRIACAO;
+		
+		private EntitySet<Comentario> _Comentarios;
+		
+		private EntitySet<Curtida> _Interacoes;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPST_IDChanging(int value);
+    partial void OnPST_IDChanged();
+    partial void OnUSU_IDChanging(int value);
+    partial void OnUSU_IDChanged();
+    partial void OnPST_CONTEUDOChanging(string value);
+    partial void OnPST_CONTEUDOChanged();
+    partial void OnPST_DH_CRIACAOChanging(System.Nullable<System.DateTime> value);
+    partial void OnPST_DH_CRIACAOChanged();
+    #endregion
+		
+		public Post()
+		{
+			this._Comentarios = new EntitySet<Comentario>(new Action<Comentario>(this.attach_Comentarios), new Action<Comentario>(this.detach_Comentarios));
+			this._Interacoes = new EntitySet<Curtida>(new Action<Curtida>(this.attach_Interacoes), new Action<Curtida>(this.detach_Interacoes));
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PST_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int PST_ID
+		{
+			get
+			{
+				return this._PST_ID;
+			}
+			set
+			{
+				if ((this._PST_ID != value))
+				{
+					this.OnPST_IDChanging(value);
+					this.SendPropertyChanging();
+					this._PST_ID = value;
+					this.SendPropertyChanged("PST_ID");
+					this.OnPST_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_ID", DbType="Int NOT NULL")]
+		public int USU_ID
+		{
+			get
+			{
+				return this._USU_ID;
+			}
+			set
+			{
+				if ((this._USU_ID != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUSU_IDChanging(value);
+					this.SendPropertyChanging();
+					this._USU_ID = value;
+					this.SendPropertyChanged("USU_ID");
+					this.OnUSU_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PST_CONTEUDO", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string PST_CONTEUDO
+		{
+			get
+			{
+				return this._PST_CONTEUDO;
+			}
+			set
+			{
+				if ((this._PST_CONTEUDO != value))
+				{
+					this.OnPST_CONTEUDOChanging(value);
+					this.SendPropertyChanging();
+					this._PST_CONTEUDO = value;
+					this.SendPropertyChanged("PST_CONTEUDO");
+					this.OnPST_CONTEUDOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PST_HASH", AutoSync=AutoSync.Always, DbType="VarChar(MAX)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string PST_HASH
+		{
+			get
+			{
+				return this._PST_HASH;
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PST_DH_CRIACAO", DbType="DateTime")]
+		public System.Nullable<System.DateTime> PST_DH_CRIACAO
+		{
+			get
+			{
+				return this._PST_DH_CRIACAO;
+			}
+			set
+			{
+				if ((this._PST_DH_CRIACAO != value))
+				{
+					this.OnPST_DH_CRIACAOChanging(value);
+					this.SendPropertyChanging();
+					this._PST_DH_CRIACAO = value;
+					this.SendPropertyChanged("PST_DH_CRIACAO");
+					this.OnPST_DH_CRIACAOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_Comentario", Storage="_Comentarios", ThisKey="PST_ID", OtherKey="PST_ID")]
+		public EntitySet<Comentario> Comentarios
+		{
+			get
+			{
+				return this._Comentarios;
+			}
+			set
+			{
+				this._Comentarios.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_Curtida", Storage="_Interacoes", ThisKey="PST_ID", OtherKey="PST_ID")]
+		public EntitySet<Curtida> Interacoes
+		{
+			get
+			{
+				return this._Interacoes;
+			}
+			set
+			{
+				this._Interacoes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Post", Storage="_Usuario", ThisKey="USU_ID", OtherKey="USU_ID", IsForeignKey=true)]
+		internal Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Posts.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Posts.Add(this);
+						this._USU_ID = value.USU_ID;
+					}
+					else
+					{
+						this._USU_ID = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Comentarios(Comentario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Post = this;
+		}
+		
+		private void detach_Comentarios(Comentario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Post = null;
+		}
+		
+		private void attach_Interacoes(Curtida entity)
+		{
+			this.SendPropertyChanging();
+			entity.Post = this;
+		}
+		
+		private void detach_Interacoes(Curtida entity)
+		{
+			this.SendPropertyChanging();
+			entity.Post = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Comentario")]
+	public partial class Comentario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _COM_ID;
+		
+		private int _USU_ID;
+		
+		private System.Nullable<int> _PST_ID;
+		
+		private string _COM_TEXTO;
+		
+		private System.Nullable<int> _COM_ID_RESPOSTA;
+		
+		private EntitySet<Comentario> _Comentarios;
+		
+		private EntitySet<Curtida> _Interacoes;
+		
+		private EntityRef<Comentario> _RespostaDe;
+		
+		private EntityRef<Post> _Post;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCOM_IDChanging(int value);
+    partial void OnCOM_IDChanged();
+    partial void OnUSU_IDChanging(int value);
+    partial void OnUSU_IDChanged();
+    partial void OnPST_IDChanging(System.Nullable<int> value);
+    partial void OnPST_IDChanged();
+    partial void OnCOM_TEXTOChanging(string value);
+    partial void OnCOM_TEXTOChanged();
+    partial void OnCOM_ID_RESPOSTAChanging(System.Nullable<int> value);
+    partial void OnCOM_ID_RESPOSTAChanged();
+    #endregion
+		
+		public Comentario()
+		{
+			this._Comentarios = new EntitySet<Comentario>(new Action<Comentario>(this.attach_Comentarios), new Action<Comentario>(this.detach_Comentarios));
+			this._Interacoes = new EntitySet<Curtida>(new Action<Curtida>(this.attach_Interacoes), new Action<Curtida>(this.detach_Interacoes));
+			this._RespostaDe = default(EntityRef<Comentario>);
+			this._Post = default(EntityRef<Post>);
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COM_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int COM_ID
+		{
+			get
+			{
+				return this._COM_ID;
+			}
+			set
+			{
+				if ((this._COM_ID != value))
+				{
+					this.OnCOM_IDChanging(value);
+					this.SendPropertyChanging();
+					this._COM_ID = value;
+					this.SendPropertyChanged("COM_ID");
+					this.OnCOM_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_ID", DbType="Int NOT NULL")]
+		public int USU_ID
+		{
+			get
+			{
+				return this._USU_ID;
+			}
+			set
+			{
+				if ((this._USU_ID != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUSU_IDChanging(value);
+					this.SendPropertyChanging();
+					this._USU_ID = value;
+					this.SendPropertyChanged("USU_ID");
+					this.OnUSU_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PST_ID", DbType="Int")]
+		public System.Nullable<int> PST_ID
+		{
+			get
+			{
+				return this._PST_ID;
+			}
+			set
+			{
+				if ((this._PST_ID != value))
+				{
+					if (this._Post.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPST_IDChanging(value);
+					this.SendPropertyChanging();
+					this._PST_ID = value;
+					this.SendPropertyChanged("PST_ID");
+					this.OnPST_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COM_TEXTO", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string COM_TEXTO
+		{
+			get
+			{
+				return this._COM_TEXTO;
+			}
+			set
+			{
+				if ((this._COM_TEXTO != value))
+				{
+					this.OnCOM_TEXTOChanging(value);
+					this.SendPropertyChanging();
+					this._COM_TEXTO = value;
+					this.SendPropertyChanged("COM_TEXTO");
+					this.OnCOM_TEXTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COM_ID_RESPOSTA", DbType="Int")]
+		public System.Nullable<int> COM_ID_RESPOSTA
+		{
+			get
+			{
+				return this._COM_ID_RESPOSTA;
+			}
+			set
+			{
+				if ((this._COM_ID_RESPOSTA != value))
+				{
+					if (this._RespostaDe.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCOM_ID_RESPOSTAChanging(value);
+					this.SendPropertyChanging();
+					this._COM_ID_RESPOSTA = value;
+					this.SendPropertyChanged("COM_ID_RESPOSTA");
+					this.OnCOM_ID_RESPOSTAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comentario_Comentario", Storage="_Comentarios", ThisKey="COM_ID", OtherKey="COM_ID_RESPOSTA")]
+		public EntitySet<Comentario> Comentarios
+		{
+			get
+			{
+				return this._Comentarios;
+			}
+			set
+			{
+				this._Comentarios.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comentario_Curtida", Storage="_Interacoes", ThisKey="COM_ID", OtherKey="COM_ID")]
+		public EntitySet<Curtida> Interacoes
+		{
+			get
+			{
+				return this._Interacoes;
+			}
+			set
+			{
+				this._Interacoes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comentario_Comentario", Storage="_RespostaDe", ThisKey="COM_ID_RESPOSTA", OtherKey="COM_ID", IsForeignKey=true)]
+		internal Comentario RespostaDe
+		{
+			get
+			{
+				return this._RespostaDe.Entity;
+			}
+			set
+			{
+				Comentario previousValue = this._RespostaDe.Entity;
+				if (((previousValue != value) 
+							|| (this._RespostaDe.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RespostaDe.Entity = null;
+						previousValue.Comentarios.Remove(this);
+					}
+					this._RespostaDe.Entity = value;
+					if ((value != null))
+					{
+						value.Comentarios.Add(this);
+						this._COM_ID_RESPOSTA = value.COM_ID;
+					}
+					else
+					{
+						this._COM_ID_RESPOSTA = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("RespostaDe");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_Comentario", Storage="_Post", ThisKey="PST_ID", OtherKey="PST_ID", IsForeignKey=true)]
+		public Post Post
+		{
+			get
+			{
+				return this._Post.Entity;
+			}
+			set
+			{
+				Post previousValue = this._Post.Entity;
+				if (((previousValue != value) 
+							|| (this._Post.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Post.Entity = null;
+						previousValue.Comentarios.Remove(this);
+					}
+					this._Post.Entity = value;
+					if ((value != null))
+					{
+						value.Comentarios.Add(this);
+						this._PST_ID = value.PST_ID;
+					}
+					else
+					{
+						this._PST_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Post");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Comentario", Storage="_Usuario", ThisKey="USU_ID", OtherKey="USU_ID", IsForeignKey=true)]
+		internal Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Comentarios.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Comentarios.Add(this);
+						this._USU_ID = value.USU_ID;
+					}
+					else
+					{
+						this._USU_ID = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Comentarios(Comentario entity)
+		{
+			this.SendPropertyChanging();
+			entity.RespostaDe = this;
+		}
+		
+		private void detach_Comentarios(Comentario entity)
+		{
+			this.SendPropertyChanging();
+			entity.RespostaDe = null;
+		}
+		
+		private void attach_Interacoes(Curtida entity)
+		{
+			this.SendPropertyChanging();
+			entity.Comentario = this;
+		}
+		
+		private void detach_Interacoes(Curtida entity)
+		{
+			this.SendPropertyChanging();
+			entity.Comentario = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Curtidas")]
+	public partial class Curtida : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CRT_ID;
+		
+		private int _USU_ID;
+		
+		private System.Nullable<int> _PST_ID;
+		
+		private System.Nullable<int> _COM_ID;
+		
+		private System.Nullable<bool> _CRT_LIKE_DISLIKE;
+		
+		private EntityRef<Comentario> _Comentario;
+		
+		private EntityRef<Post> _Post;
+		
+		private EntityRef<Usuario> _Usuario;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCRT_IDChanging(int value);
+    partial void OnCRT_IDChanged();
+    partial void OnUSU_IDChanging(int value);
+    partial void OnUSU_IDChanged();
+    partial void OnPST_IDChanging(System.Nullable<int> value);
+    partial void OnPST_IDChanged();
+    partial void OnCOM_IDChanging(System.Nullable<int> value);
+    partial void OnCOM_IDChanged();
+    partial void OnCRT_LIKE_DISLIKEChanging(System.Nullable<bool> value);
+    partial void OnCRT_LIKE_DISLIKEChanged();
+    #endregion
+		
+		public Curtida()
+		{
+			this._Comentario = default(EntityRef<Comentario>);
+			this._Post = default(EntityRef<Post>);
+			this._Usuario = default(EntityRef<Usuario>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRT_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CRT_ID
+		{
+			get
+			{
+				return this._CRT_ID;
+			}
+			set
+			{
+				if ((this._CRT_ID != value))
+				{
+					this.OnCRT_IDChanging(value);
+					this.SendPropertyChanging();
+					this._CRT_ID = value;
+					this.SendPropertyChanged("CRT_ID");
+					this.OnCRT_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USU_ID", DbType="Int NOT NULL")]
+		public int USU_ID
+		{
+			get
+			{
+				return this._USU_ID;
+			}
+			set
+			{
+				if ((this._USU_ID != value))
+				{
+					if (this._Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUSU_IDChanging(value);
+					this.SendPropertyChanging();
+					this._USU_ID = value;
+					this.SendPropertyChanged("USU_ID");
+					this.OnUSU_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PST_ID", DbType="Int")]
+		public System.Nullable<int> PST_ID
+		{
+			get
+			{
+				return this._PST_ID;
+			}
+			set
+			{
+				if ((this._PST_ID != value))
+				{
+					if (this._Post.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPST_IDChanging(value);
+					this.SendPropertyChanging();
+					this._PST_ID = value;
+					this.SendPropertyChanged("PST_ID");
+					this.OnPST_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COM_ID", DbType="Int")]
+		public System.Nullable<int> COM_ID
+		{
+			get
+			{
+				return this._COM_ID;
+			}
+			set
+			{
+				if ((this._COM_ID != value))
+				{
+					if (this._Comentario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCOM_IDChanging(value);
+					this.SendPropertyChanging();
+					this._COM_ID = value;
+					this.SendPropertyChanged("COM_ID");
+					this.OnCOM_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRT_LIKE_DISLIKE", DbType="Bit")]
+		public System.Nullable<bool> CRT_LIKE_DISLIKE
+		{
+			get
+			{
+				return this._CRT_LIKE_DISLIKE;
+			}
+			set
+			{
+				if ((this._CRT_LIKE_DISLIKE != value))
+				{
+					this.OnCRT_LIKE_DISLIKEChanging(value);
+					this.SendPropertyChanging();
+					this._CRT_LIKE_DISLIKE = value;
+					this.SendPropertyChanged("CRT_LIKE_DISLIKE");
+					this.OnCRT_LIKE_DISLIKEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comentario_Curtida", Storage="_Comentario", ThisKey="COM_ID", OtherKey="COM_ID", IsForeignKey=true)]
+		internal Comentario Comentario
+		{
+			get
+			{
+				return this._Comentario.Entity;
+			}
+			set
+			{
+				Comentario previousValue = this._Comentario.Entity;
+				if (((previousValue != value) 
+							|| (this._Comentario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Comentario.Entity = null;
+						previousValue.Interacoes.Remove(this);
+					}
+					this._Comentario.Entity = value;
+					if ((value != null))
+					{
+						value.Interacoes.Add(this);
+						this._COM_ID = value.COM_ID;
+					}
+					else
+					{
+						this._COM_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Comentario");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_Curtida", Storage="_Post", ThisKey="PST_ID", OtherKey="PST_ID", IsForeignKey=true)]
+		internal Post Post
+		{
+			get
+			{
+				return this._Post.Entity;
+			}
+			set
+			{
+				Post previousValue = this._Post.Entity;
+				if (((previousValue != value) 
+							|| (this._Post.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Post.Entity = null;
+						previousValue.Interacoes.Remove(this);
+					}
+					this._Post.Entity = value;
+					if ((value != null))
+					{
+						value.Interacoes.Add(this);
+						this._PST_ID = value.PST_ID;
+					}
+					else
+					{
+						this._PST_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Post");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Usuario_Curtida", Storage="_Usuario", ThisKey="USU_ID", OtherKey="USU_ID", IsForeignKey=true)]
+		internal Usuario Usuario
+		{
+			get
+			{
+				return this._Usuario.Entity;
+			}
+			set
+			{
+				Usuario previousValue = this._Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Usuario.Entity = null;
+						previousValue.Interacoes.Remove(this);
+					}
+					this._Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Interacoes.Add(this);
+						this._USU_ID = value.USU_ID;
+					}
+					else
+					{
+						this._USU_ID = default(int);
+					}
+					this.SendPropertyChanged("Usuario");
 				}
 			}
 		}

@@ -10,6 +10,47 @@
       <Column Name="USU_FOTO_PERFIL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="USU_USUARIO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="USU_ATIVO" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Post" Member="Posts" ThisKey="USU_ID" OtherKey="USU_ID" Type="Post" />
+      <Association Name="Usuario_Comentario" Member="Comentarios" ThisKey="USU_ID" OtherKey="USU_ID" Type="Comentario" />
+      <Association Name="Usuario_Curtida" Member="Interacoes" ThisKey="USU_ID" OtherKey="USU_ID" Type="Curtida" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Post" Member="Posts">
+    <Type Name="Post">
+      <Column Name="PST_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USU_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PST_CONTEUDO" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="PST_HASH" Type="System.String" DbType="VarChar(MAX)" IsReadOnly="true" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="PST_DH_CRIACAO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Post_Comentario" Member="Comentarios" ThisKey="PST_ID" OtherKey="PST_ID" Type="Comentario" />
+      <Association Name="Post_Curtida" Member="Interacoes" ThisKey="PST_ID" OtherKey="PST_ID" Type="Curtida" />
+      <Association Name="Usuario_Post" Member="Usuario" AccessModifier="Internal" ThisKey="USU_ID" OtherKey="USU_ID" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comentario" Member="Comentarios">
+    <Type Name="Comentario">
+      <Column Name="COM_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USU_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PST_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COM_TEXTO" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="COM_ID_RESPOSTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Comentario_Comentario" Member="Comentarios" ThisKey="COM_ID" OtherKey="COM_ID_RESPOSTA" Type="Comentario" />
+      <Association Name="Comentario_Curtida" Member="Interacoes" ThisKey="COM_ID" OtherKey="COM_ID" Type="Curtida" />
+      <Association Name="Comentario_Comentario" Member="RespostaDe" AccessModifier="Internal" ThisKey="COM_ID_RESPOSTA" OtherKey="COM_ID" Type="Comentario" IsForeignKey="true" />
+      <Association Name="Post_Comentario" Member="Post" ThisKey="PST_ID" OtherKey="PST_ID" Type="Post" IsForeignKey="true" />
+      <Association Name="Usuario_Comentario" Member="Usuario" AccessModifier="Internal" ThisKey="USU_ID" OtherKey="USU_ID" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Curtidas" Member="Curtidas">
+    <Type Name="Curtida">
+      <Column Name="CRT_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USU_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PST_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRT_LIKE_DISLIKE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Comentario_Curtida" Member="Comentario" AccessModifier="Internal" ThisKey="COM_ID" OtherKey="COM_ID" Type="Comentario" IsForeignKey="true" />
+      <Association Name="Post_Curtida" Member="Post" AccessModifier="Internal" ThisKey="PST_ID" OtherKey="PST_ID" Type="Post" IsForeignKey="true" />
+      <Association Name="Usuario_Curtida" Member="Usuario" AccessModifier="Internal" ThisKey="USU_ID" OtherKey="USU_ID" Type="Usuario" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
