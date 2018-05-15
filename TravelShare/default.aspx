@@ -313,7 +313,15 @@
     <section id="live-feed">
         <div class="container wrapper">
             <h1 class="section-title slideDown">online</h1>
-            <ul class="online-users list-inline slideUp" id="usuarios" runat="server">
+            <ul class="online-users list-inline slideUp" id="usuario">
+                <template v-for="usuario in usuarios">
+                <li>
+                    <a v-bind:href="'/perfil/u/'+ usuario.USU_USUARIO" v-bind:title="usuario.USU_NOME_CURTO">
+                        <img :src="usuario.USU_FOTO_PERFIL" alt="" class="img-responsive profile-photo" />
+                        <span v-if="usuario.Online" class="online-dot"></span>
+                    </a>
+                </li>
+               </template>
             </ul>
             <h2 class="sub-title">veja o que as pessoas estão falando</h2>
             <div class="row">
@@ -476,6 +484,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.appear.min.js"></script>
     <script src="js/jquery.incremental-counter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/script.js"></script>
 
     <script>
@@ -488,6 +497,18 @@
                 $("#formLogin").addClass("esconde");
                 $("#formRegistrar").removeClass("esconde");
             });
+            var app_usuarios
+            fetch("/api/api.asmx/Usuarios").then(function (response) {
+                return response.json();
+            }).then(function (x) {
+                app_usuarios = new Vue({
+                    el: '#usuario',
+                    data: {
+                        usuarios: x
+                    }
+                })
+            })
+
         });
     </script>
 </body>

@@ -19,10 +19,6 @@ namespace TravelShare
             using (var xxx = new AcessaBanco())
             {
                 Page.Title = "Perfil de " + xxx.GetByPrimaryKey<Usuario>(USU_ID).USU_NOME_COMPLETO.ToProper();
-
-                var ps = Utils.Engine.ApplyTemplate<Post>(x => x.USU_ID == USU_ID, 0, 0);
-
-                posts_usuario.InnerHtml = ps;
             }
         }
     }

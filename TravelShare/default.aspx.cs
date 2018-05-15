@@ -25,18 +25,22 @@ namespace TravelShare
                     el1.Style.color = Color.Red.ToHexadecimal();
                     mensagem_inscrever.InnerHtml = el1.ToString();
                     break;
+
                 case "login":
                     var el2 = new HtmlElement("span", Logar(Request["USU_EMAIL"], Request["USU_SENHA"].ToString().ToMD5String()));
                     el2.Style.color = Color.Red.ToHexadecimal();
                     mensagem_logar.InnerHtml = el2.ToString();
                     break;
-                case "sair":                  
-                    UsuarioLogado = null;              
+
+                case "sair":
+                    UsuarioLogado = null;
                     Response.Redirect("/");
                     break;
+
                 case "confirmar":
                     Confirmar(Request["USU_ID"]);
                     break;
+
                 default:
                     break;
             }
@@ -61,8 +65,6 @@ namespace TravelShare
                 total_pessoas.InnerHtml = usus.Count().ToString();
                 incremental_counter.Attributes["data-value"] = usus.Count().ToString();
                 //TODO falta postagens
-
-                usuarios.InnerHtml = Utils.Engine.ApplyTemplate<Usuario>(usus.Take(10), 1, 6, "LINQTemplates.template_usuario_home.html");
             }
         }
     }
