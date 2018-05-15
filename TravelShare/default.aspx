@@ -317,11 +317,11 @@
                 <template v-for="usuario in usuarios">
                 <li>
                     <a v-bind:href="'/perfil/u/'+ usuario.USU_USUARIO" v-bind:title="usuario.USU_NOME_CURTO">
-                        <img :src="usuario.USU_FOTO_PERFIL" alt="" class="img-responsive profile-photo" />
+                        <img v-bind:src="usuario.USU_FOTO_PERFIL" v-bind:alt="usuario.USU_NOME_CURTO" class="img-responsive profile-photo" />
                         <span v-if="usuario.Online" class="online-dot"></span>
                     </a>
                 </li>
-               </template>
+                    </template>
             </ul>
             <h2 class="sub-title">veja o que as pessoas estão falando</h2>
             <div class="row">
