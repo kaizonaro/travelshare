@@ -45,5 +45,27 @@ namespace TravelShare.API
                 WJSON(p);
             }
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true, XmlSerializeString = false)]
+        public void Feed(int USU_ID)
+        {
+            using (var xxx = new AcessaBanco())
+            {
+                var p = xxx.Posts.ToList(); //TODO aqui deve haver filtro de amigos/paginas
+                WJSON(p);
+            }
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true, XmlSerializeString = false)]
+        public void Atividades(int USU_ID)
+        {
+            using (var xxx = new AcessaBanco())
+            {
+                //TODO trazer posts,fotos etc, apenas data e quem postou (dos amigos)
+                WJSON(null);
+            }
+        }
     }
 }

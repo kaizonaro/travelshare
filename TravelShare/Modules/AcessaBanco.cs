@@ -25,7 +25,7 @@ namespace TravelShare.Modules
 
     partial class Post
     {
-        public string Publicado => this.PST_DH_CRIACAO.Value.GetDifference(DateTime.Now).ToTimeElapsedString();
+        public string PublicadoA => this.PST_DH_CRIACAO.Value.GetDifference(DateTime.Now).ToTimeElapsedString();
         public IEnumerable<Curtida> Likes => this.Interacoes.Where(x => x.CRT_LIKE_DISLIKE == true);
         public IEnumerable<Curtida> Dislikes => this.Interacoes.Where(x => x == null || x.CRT_LIKE_DISLIKE == false);
     }
